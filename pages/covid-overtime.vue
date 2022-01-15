@@ -1,7 +1,6 @@
 <template>
   <div :class="{ 'light-mode': lightMode, 'dark-mode': !lightMode}">
-      <Navbar url="/covid-overtime" content="COVID OVERTIME" />
-
+    <Navbar url="/" content="HOME" />
   </div>
 </template>
 
