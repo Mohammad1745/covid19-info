@@ -1,9 +1,13 @@
-.light-mode{
+.light-bg{
   background-color: #fff;
+}
+.dark-bg{
+  background-color: #222;
+}
+.light-primary{
   color: #222;
 }
-.dark-mode{
-  background-color: #222;
+.dark-primary{
   color: #fff;
 }
 .light-secondary{

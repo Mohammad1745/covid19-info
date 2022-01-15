@@ -1,14 +1,14 @@
 <template>
-  <div class="container-lg py-5">
+  <div class="container-lg pt-5 pb-4">
     <div class="">
       <div class="mode-btn position-relative float-right" @click="toggleMode">
         <font-awesome-icon v-if="lightMode" :icon="['fas', 'moon']"/>
-        <font-awesome-icon v-else :icon="['fas', 'sun']"/>
+        <font-awesome-icon v-else :icon="['fas', 'sun']" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}"/>
       </div>
       <NuxtLink :to="url" class="btn btn-primary link-item position-relative float-right"> {{ content }}</NuxtLink>
     </div>
     <div class="">
-      <div class="title">INFO COVID-19</div>
+      <div class="title" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}"><img src="../assets/svg/covid.svg" width="25" alt=""> INFO COVID-19</div>
       <div class="subtitle" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">Covid-19 Total Information, Countrywise DataTable, Charts & Overtime Map</div>
     </div>
   </div>
@@ -31,7 +31,7 @@ export default {
 
 <style scoped>
 .mode-btn{
-  margin: 10px;
+  margin: 5px;
   cursor: pointer;
 }
 .title {
@@ -40,7 +40,6 @@ export default {
 }
 .subtitle {
   font-size: 0.875rem;
-  /*font-family: 'Roboto', sans-serif;*/
   font-weight: 500;
   line-height: 1.57;
 }

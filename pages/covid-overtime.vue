@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'light-mode': lightMode, 'dark-mode': !lightMode}">
+  <div :class="{ 'light-bg': lightMode, 'dark-bg': !lightMode}">
     <Navbar url="/" content="HOME" />
   </div>
 </template>
