@@ -5,7 +5,7 @@
       <div class="quantity" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">{{ info.quantity }}</div>
       <div class="date" :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">{{ $dateFns.format(info.date, 'EEE MMM dd yyyy') }}</div>
       <div class="comparison mb-3">
-        <span class="percent" :class="{ 'percent-success': info.isGood, 'percent-danger': !info.isGood}">{{ info.difference }}% {{info.hasIncreased ? 'increase': 'decrease' }}</span>
+        <span class="percent" :class="{ 'percent-success': info.isSuccess, 'percent-danger': info.isDanger}">{{ info.difference }}% {{info.hasIncreased ? 'increase': 'decrease' }}</span>
         <span class="previous-count" :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">from yesterday ({{ info.lastDayQuantity }})</span>
       </div>
     </div>
@@ -36,6 +36,7 @@ export default {
 }
 .percent {
   color: #fff;
+  background: #1380d4;
   padding: 8px 10px;
   border-radius: 20px;
   font-size: 12px;
