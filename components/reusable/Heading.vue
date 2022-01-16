@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div class="title" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}">
-      <img :src="icon" width="25" alt="">
+      <slot></slot>
       {{ title }}
     </div>
     <div class="subtitle" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">
@@ -15,7 +15,7 @@ import {mapGetters, mapActions} from "vuex"
 
 export default {
   name: "Heading",
-  props:['title', 'subtitle', 'icon'],
+  props:['title', 'subtitle'],
   computed: {
     ...mapGetters(['lightMode'])
   },

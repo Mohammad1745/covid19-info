@@ -18,7 +18,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~assets/css/style.css'
+    '~assets/css/style.css',
+    '~assets/css/loader.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -39,6 +40,7 @@ export default {
     '@nuxt/typescript-build',
     '@nuxtjs/fontawesome',
     '@nuxtjs/date-fns',
+    "@nuxtjs/svg"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

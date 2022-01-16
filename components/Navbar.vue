@@ -10,8 +10,7 @@
     <Heading
       title="INFO COVID-19"
       subtitle="Covid-19 Total Information, Countrywise DataTable, Charts & Overtime Map"
-      icon="/_nuxt/assets/svg/covid.svg"
-    />
+    ><img width="25" src="~assets/svg/covid.svg" alt=""></Heading>
   </div>
 </template>
 
