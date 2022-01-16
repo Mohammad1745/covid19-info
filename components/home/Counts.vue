@@ -1,6 +1,7 @@
 <template>
   <div class="container-lg">
-    <div class="row">
+    <Loader v-if="loading" />
+    <div v-else class="row">
       <InfoCard
         v-for="(info, i) in allInfo"
         :key="i"
@@ -16,12 +17,18 @@ import {mapGetters, mapActions} from "vuex";
 
 export default {
   name: "Counts",
+  data(){
+    return {
+      loading: true
+    }
+  },
   computed: {
     ...mapGetters(['lightMode', 'allInfo'])
   },
   async mounted () {
     await this.$store.dispatch('updateInfo')
     await this.$store.dispatch('updateLastDayInfo')
+    this.loading=false
   }
 }
 </script>
