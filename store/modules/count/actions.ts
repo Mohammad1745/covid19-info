@@ -6,7 +6,7 @@ export default {
       context.commit('UPDATE_INFO', response.data)
     },
     async updateLastDayInfo(context: any) {
-      let response = await axios.get('https://disease.sh/v3/covid-19/all?lastdays=1')
+      let response = await axios.get('https://disease.sh/v3/covid-19/all?yesterday=1')
       context.commit('UPDATE_LAST_DAY_INFO', response.data)
     },
   }

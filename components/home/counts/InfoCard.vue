@@ -5,8 +5,8 @@
       <div class="quantity" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}">{{ info.quantity }}</div>
       <div class="date" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">{{ $dateFns.format(info.date, 'EEE MMM dd yyyy') }}</div>
       <div class="comparison mb-3">
-        <span class="percent">{{ info.todayIncrease }}% Increase</span>
-        <span class="previous-count" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">from yesterday (323.6M)</span>
+        <span class="percent">{{ info.difference }}% {{info.increase ? 'increase': 'decrease' }}</span>
+        <span class="previous-count" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">from yesterday ({{ info.lastDayQuantity }})</span>
       </div>
     </div>
   </div>
