@@ -1,11 +1,11 @@
 <template>
   <div :class="classNames">
-    <div class="info-card">
-      <div class="title" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">TOTAL CASES</div>
-      <div class="quantity" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}">324,647,218</div>
-      <div class="date" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">Sat Jan 15 2022</div>
+    <div class="info-card" :class="{ 'light-card-bg': lightMode, 'dark-card-bg': !lightMode}">
+      <div class="title" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">{{ info.title }}</div>
+      <div class="quantity" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}">{{ info.quantity }}</div>
+      <div class="date" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">{{ $dateFns.format(info.date, 'EEE MMM dd yyyy') }}</div>
       <div class="comparison mb-3">
-        <span class="percent">0% Increase</span>
+        <span class="percent">{{ info.todayIncrease }}% Increase</span>
         <span class="previous-count" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">from yesterday (323.6M)</span>
       </div>
     </div>
@@ -27,7 +27,7 @@ export default {
 <style scoped>
 .info-card {
   padding: 15px;
-  border: 1px solid #999;
+  border: 1px solid rgba(255,255,255, .12);
   border-radius: 5px;
   font-weight:bold;
   box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.25);

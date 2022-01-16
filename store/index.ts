@@ -1,4 +1,4 @@
 import mode from "~/store/modules/mode/index"
-// import todo from "~/store/modules/todo/index"
+import count from "~/store/modules/count/index"
 
-export const  modules = {mode}
+export const  modules = {mode, count}

@@ -1,21 +1,28 @@
 <template>
   <div class="container-lg" :class="{ 'light-bg': lightMode, 'dark-bg': !lightMode}">
     <div class="row">
-      <InfoCard classNames="col-md-6 col-sm-12 p-3" />
-      <InfoCard classNames="col-md-6 col-sm-12 p-3" />
-      <InfoCard classNames="col-md-6 col-sm-12 p-3" />
-      <InfoCard classNames="col-md-6 col-sm-12 p-3" />
+      <InfoCard
+        v-for="(info, i) in allInfo"
+        :key="i"
+        :info="info"
+        classNames="col-md-6 col-sm-12 p-3"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import {mapGetters} from "vuex";
+import {mapGetters, mapActions} from "vuex";
+
 export default {
   name: "Counts",
   computed: {
-    ...mapGetters(['lightMode'])
+    ...mapGetters(['lightMode', 'allInfo'])
   },
+  async mounted () {
+    await this.$store.dispatch('updateInfo')
+    await this.$store.dispatch('updateLastDayInfo')
+  }
 }
 </script>
 
