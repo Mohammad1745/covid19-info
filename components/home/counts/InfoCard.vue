@@ -1,6 +1,6 @@
 <template>
   <div :class="classNames">
-    <div class="info-card" :class="{ 'light-card-bg': lightMode, 'dark-card-bg': !lightMode}">
+    <div class="info-card" :class="{ 'light-card': lightMode, 'dark-card': !lightMode}">
       <div class="title" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">{{ info.title }}</div>
       <div class="quantity" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}">{{ info.quantity }}</div>
       <div class="date" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">{{ $dateFns.format(info.date, 'EEE MMM dd yyyy') }}</div>
@@ -27,10 +27,8 @@ export default {
 <style scoped>
 .info-card {
   padding: 15px;
-  border: 1px solid rgba(255,255,255, .12);
   border-radius: 5px;
   font-weight:bold;
-  box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.25);
 }
 .title, .date, .previous-count {
   font-size: 13px;

@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'light-bg': lightMode, 'dark-bg': !lightMode}">
+  <div class="app" :class="{ 'light-bg': lightMode, 'dark-bg': !lightMode}">
       <Navbar url="/covid-overtime" content="COVID OVERTIME" />
       <Counts />
   </div>
@@ -17,5 +17,8 @@ export default Vue.extend({
 })
 </script>
 
-<style>
+<style scoped>
+  .app {
+    min-height: 100vh;
+  }
 </style>

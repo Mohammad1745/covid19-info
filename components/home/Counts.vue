@@ -1,5 +1,5 @@
 <template>
-  <div class="container-lg" :class="{ 'light-bg': lightMode, 'dark-bg': !lightMode}">
+  <div class="container-lg">
     <div class="row">
       <InfoCard
         v-for="(info, i) in allInfo"

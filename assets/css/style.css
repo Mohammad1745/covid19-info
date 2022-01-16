@@ -4,11 +4,17 @@
 .dark-bg{
   background-color: #222;
 }
-.light-card-bg {
+.light-card {
   background-color: transparent;
+  border: 1px solid #777;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.25);
 }
-.dark-card-bg {
+.dark-card {
   background-color: #424242;
+  border: 1px solid rgba(255,255,255, .12);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.25);
 }
 .light-primary{
   color: #222;
