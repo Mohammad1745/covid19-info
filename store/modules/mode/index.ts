@@ -3,10 +3,10 @@ import mutations from './mutations'
 
 export default {
   state: () => ({
-    lightMode: true
+    darkMode: true
   }),
   getters: {
-    lightMode:  (state:any) => state.lightMode,
+    darkMode:  (state:any) => state.darkMode,
   },
   actions: {...actions},
   mutations: {...mutations}

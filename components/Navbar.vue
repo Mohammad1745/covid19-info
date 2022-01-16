@@ -2,8 +2,8 @@
   <div class="container-lg pt-5 pb-4">
     <div class="">
       <div class="mode-btn position-relative float-right" @click="toggleMode">
-        <font-awesome-icon v-if="lightMode" :icon="['fas', 'moon']"/>
-        <font-awesome-icon v-else :icon="['fas', 'sun']" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}"/>
+        <font-awesome-icon v-if="darkMode" :icon="['fas', 'sun']" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}"/>
+        <font-awesome-icon v-else :icon="['fas', 'moon']"/>
       </div>
       <NuxtLink :to="url" class="btn btn-primary link-item position-relative float-right"> {{ content }}</NuxtLink>
     </div>
@@ -21,7 +21,7 @@ export default {
   name: "Nav",
   props:['url', 'content'],
   computed: {
-    ...mapGetters(['lightMode'])
+    ...mapGetters(['darkMode'])
   },
   methods:{
     ...mapActions(['toggleMode'])

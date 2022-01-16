@@ -1,5 +1,5 @@
 <template>
-  <div class="app" :class="{ 'light-bg': lightMode, 'dark-bg': !lightMode}">
+  <div class="app" :class="{ 'dark-bg': darkMode, 'light-bg': !darkMode}">
       <Navbar url="/covid-overtime" content="COVID OVERTIME" />
       <Counts />
   </div>
@@ -12,7 +12,7 @@ import {mapGetters} from "vuex"
 export default Vue.extend({
   name: 'IndexPage',
   computed: {
-    ...mapGetters(['lightMode'])
+    ...mapGetters(['darkMode'])
   },
 })
 </script>

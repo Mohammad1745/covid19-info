@@ -1,5 +1,5 @@
 export default  {
   TOGGLE_MODE(state: any): void {
-    state.lightMode = !state.lightMode
+    state.darkMode = !state.darkMode
   },
 }

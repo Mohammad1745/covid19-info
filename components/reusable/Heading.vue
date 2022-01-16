@@ -1,10 +1,10 @@
 <template>
   <div class="">
-    <div class="title" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}">
+    <div class="title" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">
       <slot></slot>
       {{ title }}
     </div>
-    <div class="subtitle" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">
+    <div class="subtitle" :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">
       {{ subtitle }}
     </div>
   </div>
@@ -17,7 +17,7 @@ export default {
   name: "Heading",
   props:['title', 'subtitle'],
   computed: {
-    ...mapGetters(['lightMode'])
+    ...mapGetters(['darkMode'])
   },
   methods:{
     ...mapActions(['toggleMode'])

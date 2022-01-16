@@ -23,7 +23,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['lightMode', 'allInfo'])
+    ...mapGetters(['allInfo'])
   },
   async mounted () {
     await this.$store.dispatch('updateInfo')

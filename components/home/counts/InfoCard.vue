@@ -1,12 +1,12 @@
 <template>
   <div :class="classNames">
-    <div class="info-card" :class="{ 'light-card': lightMode, 'dark-card': !lightMode}">
-      <div class="title" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">{{ info.title }}</div>
-      <div class="quantity" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}">{{ info.quantity }}</div>
-      <div class="date" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">{{ $dateFns.format(info.date, 'EEE MMM dd yyyy') }}</div>
+    <div class="info-card" :class="{ 'dark-card': darkMode, 'light-card': !darkMode}">
+      <div class="title" :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">{{ info.title }}</div>
+      <div class="quantity" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">{{ info.quantity }}</div>
+      <div class="date" :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">{{ $dateFns.format(info.date, 'EEE MMM dd yyyy') }}</div>
       <div class="comparison mb-3">
         <span class="percent">{{ info.difference }}% {{info.increase ? 'increase': 'decrease' }}</span>
-        <span class="previous-count" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">from yesterday ({{ info.lastDayQuantity }})</span>
+        <span class="previous-count" :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">from yesterday ({{ info.lastDayQuantity }})</span>
       </div>
     </div>
   </div>
@@ -19,7 +19,7 @@ export default {
   name: "InfoCard",
   props: ['classNames', 'info'],
   computed: {
-    ...mapGetters(['lightMode'])
+    ...mapGetters(['darkMode'])
   },
 }
 </script>
