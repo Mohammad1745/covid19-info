@@ -31,20 +31,13 @@ export default {
 
 <style scoped>
 .mode-btn{
-  margin: 5px;
+  margin: 3px 3px 3px 15px;
+  font-size: 25px;
   cursor: pointer;
-}
-.title {
-  font-size: 30px;
-  font-weight: bold;
-}
-.subtitle {
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.57;
 }
 .link-item {
   font-size: 12px;
   font-weight: bold;
+  padding: 10px 15px;
 }
 </style>
