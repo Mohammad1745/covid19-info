@@ -7,10 +7,11 @@
       </div>
       <NuxtLink :to="url" class="btn btn-primary link-item position-relative float-right"> {{ content }}</NuxtLink>
     </div>
-    <div class="">
-      <div class="title" :class="{ 'light-primary': lightMode, 'dark-primary': !lightMode}"><img src="../assets/svg/covid.svg" width="25" alt=""> INFO COVID-19</div>
-      <div class="subtitle" :class="{ 'light-secondary': lightMode, 'dark-secondary': !lightMode}">Covid-19 Total Information, Countrywise DataTable, Charts & Overtime Map</div>
-    </div>
+    <Heading
+      title="INFO COVID-19"
+      subtitle="Covid-19 Total Information, Countrywise DataTable, Charts & Overtime Map"
+      icon="/_nuxt/assets/svg/covid.svg"
+    />
   </div>
 </template>
 

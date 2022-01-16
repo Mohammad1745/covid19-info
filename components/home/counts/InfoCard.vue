@@ -30,18 +30,20 @@ export default {
   border: 1px solid #999;
   border-radius: 5px;
   font-weight:bold;
+  box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.25);
 }
 .title, .date, .previous-count {
-  font-size: 15px;
-  margin: 10px auto;
+  font-size: 13px;
+  margin-bottom: 15px;
 }
 .percent {
   color: #fff;
-  padding: 10px;
+  padding: 8px 10px;
   background: green;
   border-radius: 20px;
+  font-size: 12px;
 }
 .quantity {
-  font-size: 25px;
+  font-size: 35px;
 }
 </style>
