@@ -1,7 +1,10 @@
 <template>
   <div :class="classNames">
     <div class="info-card" :class="{ 'dark-card': darkMode, 'light-card': !darkMode}">
-      <div class="title" :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">{{ info.title }}</div>
+      <div class="title" :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">
+        {{ info.title }}
+        <span class="image"><slot></slot></span>
+      </div>
       <div class="quantity" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">{{ info.quantity }}</div>
       <div class="date" :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">{{ $dateFns.format(info.date, 'EEE MMM dd yyyy') }}</div>
       <div class="comparison mb-3">
@@ -50,5 +53,10 @@ export default {
 }
 .quantity {
   font-size: 35px;
+}
+.image {
+  position: absolute;
+  top: 30px;
+  right: 30px;
 }
 </style>

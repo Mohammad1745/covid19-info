@@ -7,7 +7,12 @@
         :key="i"
         :info="info"
         classNames="col-md-6 col-sm-12 p-3"
-      />
+      >
+        <img v-if="info.svg==='cases'" width="50" src="~assets/svg/cases.svg" alt="">
+        <img v-else-if="info.svg==='deaths'" width="50" src="~assets/svg/deaths.svg" alt="">
+        <img v-else-if="info.svg==='recoveries'" width="50" src="~assets/svg/recoveries.svg" alt="">
+        <img v-else width="50" src="~assets/svg/active-cases.svg" alt="">
+      </InfoCard>
     </div>
   </div>
 </template>
@@ -19,7 +24,8 @@ export default {
   name: "Counts",
   data(){
     return {
-      loading: true
+      loading: true,
+      src: `~assets/svg/cases.svg`
     }
   },
   computed: {

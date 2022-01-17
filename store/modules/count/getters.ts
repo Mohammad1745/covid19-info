@@ -6,6 +6,7 @@ export default {
     return [
       {
         title: 'TOTAL CASES',
+        svg: 'cases',
         quantity: helper.convertToAccountingFormat(state.todayInfo.cases),
         date,
         difference: ((state.todayInfo.cases/state.lastDayInfo.cases-1) * 100).toFixed(2),
@@ -15,6 +16,7 @@ export default {
       },
       {
         title: 'TOTAL DEATHS',
+        svg: 'deaths',
         quantity: helper.convertToAccountingFormat(state.todayInfo.deaths),
         date,
         difference: ((state.todayInfo.deaths/state.lastDayInfo.deaths - 1) * 100).toFixed(2),
@@ -24,6 +26,7 @@ export default {
       },
       {
         title: 'TOTAL RECOVERIES',
+        svg: 'recoveries',
         quantity: helper.convertToAccountingFormat(state.todayInfo.recovered),
         date,
         difference: ((state.todayInfo.recovered/state.lastDayInfo.recovered - 1) * 100).toFixed(2),
@@ -33,6 +36,7 @@ export default {
       },
       {
         title: 'ACTIVE CASES',
+        svg: 'active-cases',
         quantity: helper.convertToAccountingFormat(state.todayInfo.active),
         date,
         difference: ((state.todayInfo.active/state.lastDayInfo.active - 1) * 100).toFixed(2),
