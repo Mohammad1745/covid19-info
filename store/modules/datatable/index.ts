@@ -5,10 +5,12 @@ import getters from "./getters";
 export default {
   state: () => ({
     allCountryInfo: {},
+    lastDayAllCountryInfo: {},
     country: '',
     yesterday: false,
     rowsPerPage: 10,
     page: 1,
+    loadingAllCountryInfo: false
   }),
   getters: {...getters},
   actions: {...actions},
