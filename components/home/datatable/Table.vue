@@ -1,10 +1,13 @@
 <template>
-
+  <div :class="classNames">
+    <TableHeader />
+  </div>
 </template>
 
 <script>
 export default {
-  name: "Table"
+  name: "Table",
+  props: ['classNames'],
 }
 </script>
 
