@@ -1,7 +1,8 @@
 <template>
   <div class="app" :class="{ 'dark-bg': darkMode, 'light-bg': !darkMode}">
       <Navbar url="/covid-overtime" content="COVID OVERTIME" />
-      <Counts />
+      <LazyCounts />
+      <LazyDatatable />
   </div>
 </template>
 

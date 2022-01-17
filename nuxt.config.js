@@ -32,6 +32,8 @@ export default {
     '~components/reusable/',
     '~components/home/',
     '~components/home/counts/',
+    '~components/home/datatable/',
+    '~components/home/datatable/table',
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules

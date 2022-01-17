@@ -18,14 +18,13 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from "vuex";
+import {mapGetters} from "vuex";
 
 export default {
   name: "Counts",
   data(){
     return {
       loading: true,
-      src: `~assets/svg/cases.svg`
     }
   },
   computed: {

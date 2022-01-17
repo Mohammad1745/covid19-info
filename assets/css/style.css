@@ -1,36 +1,57 @@
+:root {
+  --primary-light: #222;
+  --primary-dark: #fff;
+  --secondary-light: #888;
+  --secondary-dark: #bbb;
+  --bg-light: var(--primary-dark);
+  --bg-dark: var(--primary-light);
+  --border-light: #888;
+  --border-dark: rgba(255,255,255, .12);
+}
+
 .app {
   min-height: 100vh;
 }
 .light-bg{
-  background-color: #fff;
+  background-color: var(--bg-light);
 }
 .dark-bg{
-  background-color: #222;
+  background-color: var(--bg-dark);
 }
 .light-card {
   background-color: transparent;
-  border: 1px solid #777;
+  border: 1px solid var(--border-light);
   border-radius: 5px;
   box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.25);
 }
 .dark-card {
-  background-color: #424242;
-  border: 1px solid rgba(255,255,255, .12);
+  background-color: var(--border-dark);
+  border: 1px solid var(--border-dark);
   border-radius: 5px;
   box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.25);
 }
+.light-input {
+  border: 1px solid var(--border-light);
+  color: var(--secondary-light);
+  border-radius: 5px;
+}
+.dark-input {
+  border: 1px solid var(--border-dark);
+  color: var(--secondary-dark);
+  border-radius: 5px;
+}
 .light-primary{
-  color: #222;
+  color: var(--primary-light);
 }
 .dark-primary{
-  color: #fff;
+  color: var(--primary-dark);
 }
 .success-primary{
   color: #4CAF50;
 }
 .light-secondary{
-   color: #888;
+  color: var(--secondary-light);
  }
 .dark-secondary{
-  color: #bbb;
+  color: var(--secondary-dark);
 }
