@@ -1,7 +1,5 @@
-const THOUSAND : number = 1000;
-const MILLION : number = THOUSAND * THOUSAND;
-const BILLION : number = MILLION * THOUSAND;
-const TRILLION : number = BILLION * THOUSAND;
-const QUADRILLION : number = TRILLION * THOUSAND;
-
-export default { THOUSAND, MILLION, BILLION, TRILLION, QUADRILLION }
+export const THOUSAND : number = 1000;
+export const MILLION : number = THOUSAND * THOUSAND;
+export const BILLION : number = MILLION * THOUSAND;
+export const TRILLION : number = BILLION * THOUSAND;
+export const QUADRILLION : number = TRILLION * THOUSAND;
