@@ -40,6 +40,14 @@
   color: var(--secondary-dark);
   border-radius: 5px;
 }
+.light-border {
+  border: 1px solid var(--border-light);
+  border-radius: 5px;
+}
+.dark-border {
+  border: 1px solid var(--border-dark);
+  border-radius: 5px;
+}
 .light-primary{
   color: var(--primary-light);
 }
@@ -54,4 +62,12 @@
  }
 .dark-secondary{
   color: var(--secondary-dark);
+}
+.light-global-cell {
+  background-color: transparent;
+  border: 1px solid var(--border-light);
+}
+.dark-global-cell {
+  background-color: var(--border-dark);
+  border: 1px solid var(--border-dark);
 }
