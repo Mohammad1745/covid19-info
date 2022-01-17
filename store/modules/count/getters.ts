@@ -6,42 +6,42 @@ export default {
     return [
       {
         title: 'TOTAL CASES',
-        svg: 'cases',
+        type: 'cases',
         quantity: helper.convertToAccountingFormat(state.todayInfo.cases),
         date,
-        difference: ((state.todayInfo.cases/state.lastDayInfo.cases-1) * 100).toFixed(2),
+        difference: helper.percentDifference(state.todayInfo.cases, state.lastDayInfo.cases),
         hasIncreased: state.todayInfo.cases > state.lastDayInfo.cases,
-        isSuccess: state.todayInfo.cases === state.lastDayInfo.cases,
+        isDanger: helper.percentDifference(state.todayInfo.cases, state.lastDayInfo.cases) >= 1,
         lastDayQuantity: helper.convertToMultiplier(state.lastDayInfo.cases, 1)
       },
       {
         title: 'TOTAL DEATHS',
-        svg: 'deaths',
+        type: 'deaths',
         quantity: helper.convertToAccountingFormat(state.todayInfo.deaths),
         date,
-        difference: ((state.todayInfo.deaths/state.lastDayInfo.deaths - 1) * 100).toFixed(2),
+        difference: helper.percentDifference(state.todayInfo.deaths, state.lastDayInfo.deaths),
         hasIncreased: state.todayInfo.deaths > state.lastDayInfo.deaths,
-        isSuccess: state.todayInfo.deaths === state.lastDayInfo.deaths,
+        isDanger: helper.percentDifference(state.todayInfo.deaths, state.lastDayInfo.deaths) >= 1,
         lastDayQuantity: helper.convertToMultiplier(state.lastDayInfo.deaths, 1)
       },
       {
         title: 'TOTAL RECOVERIES',
-        svg: 'recoveries',
+        type: 'recoveries',
         quantity: helper.convertToAccountingFormat(state.todayInfo.recovered),
         date,
-        difference: ((state.todayInfo.recovered/state.lastDayInfo.recovered - 1) * 100).toFixed(2),
+        difference: helper.percentDifference(state.todayInfo.recovered, state.lastDayInfo.recovered),
         hasIncreased: state.todayInfo.recovered > state.lastDayInfo.recovered,
         isSuccess: state.todayInfo.recovered > state.lastDayInfo.recovered,
         lastDayQuantity: helper.convertToMultiplier(state.lastDayInfo.recovered, 1)
       },
       {
         title: 'ACTIVE CASES',
-        svg: 'active-cases',
+        type: 'active-cases',
         quantity: helper.convertToAccountingFormat(state.todayInfo.active),
         date,
-        difference: ((state.todayInfo.active/state.lastDayInfo.active - 1) * 100).toFixed(2),
+        difference: helper.percentDifference(state.todayInfo.active, state.lastDayInfo.active),
         hasIncreased: state.todayInfo.active > state.lastDayInfo.active,
-        isSuccess: state.todayInfo.active < state.lastDayInfo.active,
+        isSuccess: state.todayInfo.active <= state.lastDayInfo.active,
         isDanger: state.todayInfo.active > state.lastDayInfo.active,
         lastDayQuantity: helper.convertToMultiplier(state.lastDayInfo.active, 1)
       },

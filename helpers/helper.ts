@@ -1,5 +1,10 @@
 import { THOUSAND, MILLION, BILLION, TRILLION, QUADRILLION } from "./core-constants"
 
+function percentDifference(a: number, b: number, precision:number = 2): number
+{
+  return parseFloat(((a/b-1) * 100).toFixed(precision))
+}
+
 function numbersMultipliers(input:number|null=null) : string|{symbol:string, value:number}[]
 {
   let output:{symbol:string, value:number}[] = [
@@ -33,4 +38,8 @@ function convertToAccountingFormat(input:number=0) : string
   return input.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-export default {convertToMultiplier, convertToAccountingFormat}
+export default {
+  percentDifference,
+  convertToMultiplier,
+  convertToAccountingFormat
+}

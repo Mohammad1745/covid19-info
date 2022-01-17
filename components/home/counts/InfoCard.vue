@@ -5,7 +5,7 @@
         {{ info.title }}
         <span class="image"><slot></slot></span>
       </div>
-      <div class="quantity" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">{{ info.quantity }}</div>
+      <div class="quantity" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode, 'success-primary': info.type ==='recoveries'}">{{ info.quantity }}</div>
       <div class="date" :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">{{ $dateFns.format(info.date, 'EEE MMM dd yyyy') }}</div>
       <div class="comparison mb-3">
         <span class="percent" :class="{ 'percent-success': info.isSuccess, 'percent-danger': info.isDanger}">{{ info.difference }}% {{info.hasIncreased ? 'increase': 'decrease' }}</span>
