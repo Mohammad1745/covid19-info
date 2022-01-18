@@ -3,6 +3,7 @@
     <table width="100%" :class="{ 'dark-table dark-border': darkMode, 'light-table light-border': !darkMode}">
       <TableHeader />
       <TableGlobalDataRow />
+      <TableCountryDataRows />
     </table>
   </div>
 </template>
