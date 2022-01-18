@@ -1,78 +1,110 @@
 :root {
-  --bg-left: #485563;
-  --bg-right: #29323c;
   --dot: #909090;
-  --line: #f8f8f8;
+  --line-light: #f8f8f8;
+  --line-dark: #485563;
 }
-.loader {
+.loader-dark,
+.loader-light {
   margin: auto;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  top: 0;
-  right: 0;
   height: 300px;
   width: 300px;
 }
 .dot {
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 52.5%;
-  left: 150px;
+  margin-top: 80px;
+  margin-left: 150px;
   height: 20px;
   width: 20px;
   background: var(--dot);
   border-radius: 5rem;
 }
-.dot-1 {
-  left: 80px;
-  animation: waveUp 2s, smallExtend 2s;
+/* Dark Dots */
+.loader-dark .dot-1 {
+  margin-left: 80px;
+  animation: waveUp 2s, smallExtendLight 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
-.dot-2{
-  left: 115px;
-  animation: waveUp 2s, largeExtend 2s;
+.loader-dark .dot-2{
+  margin-left: 115px;
+  animation: waveUp 2s, largeExtendLight 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-delay: 0.15s;
 }
-.dot-3{
-  animation: waveUp 2s, smallExtend 2s;
+.loader-dark .dot-3{
+  animation: waveUp 2s, smallExtendLight 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-delay: 0.3s;
 }
-.dot-4{
-  left: 185px;
-  animation: waveUp 2s, largeExtend 2s;
+.loader-dark .dot-4{
+  margin-left: 185px;
+  animation: waveUp 2s, largeExtendLight 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-delay: 0.45s;
 }
-.dot-5 {
-  left: 220px;
-  animation: waveUp 2s, smallExtend 2s;
+.loader-dark .dot-5 {
+  margin-left: 220px;
+  animation: waveUp 2s, smallExtendLight 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-delay: 0.6s;
 }
+
+/* Light Dots */
+.loader-light .dot-1 {
+  margin-left: 80px;
+  animation: waveUp 2s, smallExtendDark 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.loader-light .dot-2{
+  margin-left: 115px;
+  animation: waveUp 2s, smallExtendDark 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: 0.15s;
+}
+.loader-light .dot-3{
+  animation: waveUp 2s, smallExtendDark 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: 0.3s;
+}
+.loader-light .dot-4{
+  margin-left: 185px;
+  animation: waveUp 2s, smallExtendDark 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: 0.45s;
+}
+.loader-light .dot-5 {
+  margin-left: 220px;
+  animation: waveUp 2s, smallExtendDark 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-delay: 0.6s;
+}
+
 @keyframes waveUp {
   0%,
   15% {
-    top: 50%;
+    margin-top: 80px;
   }
   45%,
   65% {
-    top: 42.5%;
+    margin-top: 40px;
   }
   85%,
   100% {
-    top: 50%;
+    margin-top: 80px;
   }
 }
 
-@keyframes smallExtend {
+@keyframes smallExtendDark {
   0%,
   8% {
     background-color: var(--dot);
@@ -80,7 +112,7 @@
   }
   14%,
   34% {
-    background-color: var(--line);
+    background-color: var(--line-dark);
     height: 47.5px;
   }
   46%,
@@ -90,7 +122,7 @@
   }
 }
 
-@keyframes largeExtend {
+@keyframes smallExtendLight {
   0%,
   8% {
     background-color: var(--dot);
@@ -98,7 +130,43 @@
   }
   14%,
   34% {
-    background-color: var(--line);
+    background-color: var(--line-light);
+    height: 47.5px;
+  }
+  46%,
+  100% {
+    background-color: var(--dot);
+    height: 20px;
+  }
+}
+
+@keyframes largeExtendDark {
+  0%,
+  8% {
+    background-color: var(--dot);
+    height: 20px;
+  }
+  14%,
+  34% {
+    background-color: var(--line-dark);
+    height: 82.5px;
+  }
+  46%,
+  100% {
+    background-color: var(--dot);
+    height: 20px;
+  }
+}
+
+@keyframes largeExtendLight {
+  0%,
+  8% {
+    background-color: var(--dot);
+    height: 20px;
+  }
+  14%,
+  34% {
+    background-color: var(--line-light);
     height: 82.5px;
   }
   46%,

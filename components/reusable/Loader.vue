@@ -1,5 +1,5 @@
 <template>
-  <div class="loader">
+  <div :class="{ 'loader-dark': darkMode, 'loader-light': !darkMode}">
     <div class="dot dot-1"></div>
     <div class="dot dot-2"></div>
     <div class="dot dot-3"></div>
@@ -9,8 +9,13 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex"
+
 export default {
-  name: "Loader"
+  name: "Loader",
+  computed: {
+    ...mapGetters(['darkMode'])
+  },
 }
 </script>
 
