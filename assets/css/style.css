@@ -5,8 +5,9 @@
   --secondary-dark: #bbb;
   --bg-light: var(--primary-dark);
   --bg-dark: var(--primary-light);
-  --border-light: #888;
-  --border-dark: rgba(255,255,255, .12);
+  --border-light: #bbb;
+  --border-dark: #464646;
+  --global-cell: #4d4d4d;
 }
 
 .app {
@@ -63,11 +64,55 @@
 .dark-secondary{
   color: var(--secondary-dark);
 }
-.light-global-cell {
-  background-color: transparent;
-  border: 1px solid var(--border-light);
+/* Table Styles */
+.dark-table{
+
 }
-.dark-global-cell {
-  background-color: var(--border-dark);
-  border: 1px solid var(--border-dark);
+.light-table{
+
+}
+.dark-table thead tr,
+.light-table thead tr{
+  border-bottom: 3px solid rgba(0,0,0,0.25);
+  z-index: 1;
+}
+.dark-table th,
+.light-table th{
+  padding: 0 16px;
+  color: #212529;
+  background-color: #fff;
+  border-left: 1px solid  var(--border-light);
+  text-align: center;
+  line-height: 80px;
+  font-weight: bold;
+  height: 80px;
+}
+.dark-table th span,
+.light-table th span,
+.dark-table .gd span,
+.light-table .gd span,
+.light-table td span,
+.dark-table td span{
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.dark-table .gd,
+.light-table .gd {
+  padding: 0 16px;
+  text-align: center;
+  line-height: 60px;
+  font-weight: bold;
+  height: 60px;
+}
+.dark-table .gd {
+  color: var(--primary-dark);
+  background-color: var(--global-cell);
+  border-left: 1px solid #cdcdcd;
+}
+.light-table .gd {
+  color: var(--primary-light);
+  background-color: #f2f2f2;
+  border-left: 1px solid var(--border-light);
 }

@@ -1,9 +1,9 @@
 <template>
   <div :class="classNames">
-    <div :class="{ 'dark-input': darkMode, 'light-input': !darkMode}">
+    <table width="100%" :class="{ 'dark-table dark-border': darkMode, 'light-table light-border': !darkMode}">
       <TableHeader />
       <TableGlobalDataRow />
-    </div>
+    </table>
   </div>
 </template>
 

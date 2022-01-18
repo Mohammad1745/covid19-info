@@ -17,7 +17,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "DataTable",
   computed: {
-    ...mapGetters(['loadingCountryInfo', 'datatable'])
+    ...mapGetters(['loadingCountryInfo'])
   },
   async mounted() {
     await this.$store.dispatch('updateAllCountryInfo')
