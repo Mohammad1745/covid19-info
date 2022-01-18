@@ -3,7 +3,7 @@
     <td class="gd gd0"> </td>
     <td class="gd">
       <div class="d-flex">
-        <span role='img' aria-label='emoji' class="mr-2">🌎</span>
+        <span role='img' aria-label='emoji' class="mr-2 flag">🌎</span>
         <span>Global</span>
       </div>
     </td>
@@ -43,5 +43,8 @@ export default {
 <style scoped>
 .gd0{
   border-left:none;
+}
+.flag{
+  font-size: 18px;
 }
 </style>
