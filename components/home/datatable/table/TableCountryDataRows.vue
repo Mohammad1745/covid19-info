@@ -2,17 +2,26 @@
   <tbody>
     <tr
       class="tr"
-      v-for="(array, i) in countriesInfo"
+      v-for="(country, i) in countriesInfo"
       :key="i"
     >
-      <td
-        v-for="(info, j) in array"
-        :key="j"
-        class="td"
-        :class="'td'+j"
-      >
-        <span>{{ info }}</span>
+      <td class="td td0">{{ country.rank }}</td>
+      <td class="td">
+        <div class="d-flex">
+          <span role='img' aria-label='emoji' class="mr-2">
+            <img :src="country.flag" alt="" width="25">
+          </span>
+          <span>{{ country.name }}</span>
+        </div>
       </td>
+      <td class="td"><div>{{ country.cases }}</div></td>
+      <td class="td"><div>{{ country.deaths }}</div></td>
+      <td class="td"><div>{{ country.recovered }}</div></td>
+      <td class="td"><div>{{ country.todayCases }}</div></td>
+      <td class="td"><div>{{ country.todayDeaths }}</div></td>
+      <td class="td"><div>{{ country.todayRecovered }}</div></td>
+      <td class="td"><div>{{ country.casesPerOneMillion }}</div></td>
+      <td class="td"><div>{{ country.deathsPerOneMillion }}</div></td>
     </tr>
   </tbody>
 </template>

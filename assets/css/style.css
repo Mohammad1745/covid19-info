@@ -87,12 +87,12 @@
   font-weight: bold;
   height: 80px;
 }
-.dark-table th span,
-.light-table th span,
-.dark-table .gd span,
-.light-table .gd span,
-.light-table td span,
-.dark-table td span{
+.dark-table th div,
+.light-table th div,
+.dark-table .gd div,
+.light-table .gd div,
+.light-table td div,
+.dark-table td div{
   font-size: 14px;
   display: inline-block;
   vertical-align: middle;

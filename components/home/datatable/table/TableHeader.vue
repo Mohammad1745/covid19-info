@@ -6,7 +6,7 @@
         :key="i"
         :class="'th'+i"
       >
-        <span>{{ header }}</span>
+        <div>{{ header }}</div>
       </th>
     </tr>
   </thead>
