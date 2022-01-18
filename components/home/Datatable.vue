@@ -6,7 +6,7 @@
         <img width="40" src="~assets/svg/global.svg" alt="">
       </Heading>
       <SearchBox classNames="mt-3 mb-3" />
-      <Table classNames="mt-3 mb-3 overflow-auto" />
+      <CountryTable classNames="mt-3 overflow-auto" />
     </div>
   </div>
 </template>
