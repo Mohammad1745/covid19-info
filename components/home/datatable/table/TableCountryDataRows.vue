@@ -17,9 +17,18 @@
       <td class="td"><div>{{ country.cases }}</div></td>
       <td class="td"><div>{{ country.deaths }}</div></td>
       <td class="td"><div>{{ country.recovered }}</div></td>
-      <td class="td"><div>{{ country.todayCases }}</div></td>
-      <td class="td"><div>{{ country.todayDeaths }}</div></td>
-      <td class="td"><div>{{ country.todayRecovered }}</div></td>
+      <td
+        class="gd"
+        :class="{'cell-success': country.todayRecovered !== '0'}"
+      ><div>{{ country.todayRecovered }}</div></td>
+      <td
+        class="gd"
+        :class="{'cell-highlight': country.todayCases !== '0'}"
+      ><div>{{ country.todayCases }}</div></td>
+      <td
+        class="gd"
+        :class="{'cell-danger': country.todayDeaths !== '0'}"
+      ><div>{{ country.todayDeaths }}</div></td>
       <td class="td"><div>{{ country.casesPerOneMillion }}</div></td>
       <td class="td"><div>{{ country.deathsPerOneMillion }}</div></td>
     </tr>

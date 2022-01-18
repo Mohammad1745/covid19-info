@@ -5,9 +5,12 @@ export default {
     cases: helper.convertToAccountingFormat(rootState.count.todayInfo.cases),
     deaths: helper.convertToAccountingFormat(rootState.count.todayInfo.deaths),
     recovered: helper.convertToAccountingFormat(rootState.count.todayInfo.recovered),
-    todayCases: helper.convertToAccountingFormat(rootState.count.todayInfo.todayCases),
-    todayDeaths: helper.convertToAccountingFormat(rootState.count.todayInfo.todayDeaths),
-    todayRecovered: helper.convertToAccountingFormat(rootState.count.todayInfo.todayRecovered),
+    todayCases: (rootState.count.todayInfo.todayCases ? '+':'')
+      +helper.convertToAccountingFormat(rootState.count.todayInfo.todayCases),
+    todayDeaths: (rootState.count.todayInfo.todayDeaths ? '+':'')
+      +helper.convertToAccountingFormat(rootState.count.todayInfo.todayDeaths),
+    todayRecovered: (rootState.count.todayInfo.todayRecovered ? '+':'')
+      +helper.convertToAccountingFormat(rootState.count.todayInfo.todayRecovered),
     casesPerOneMillion: helper.convertToAccountingFormat(rootState.count.todayInfo.casesPerOneMillion),
     deathsPerOneMillion: helper.convertToAccountingFormat(rootState.count.todayInfo.deathsPerOneMillion)
   }),
@@ -32,9 +35,12 @@ export default {
         cases: helper.convertToAccountingFormat(info.cases),
         deaths: helper.convertToAccountingFormat(info.deaths),
         recovered: helper.convertToAccountingFormat(info.recovered),
-        todayCases: helper.convertToAccountingFormat(info.todayCases),
-        todayDeaths: helper.convertToAccountingFormat(info.todayDeaths),
-        todayRecovered: helper.convertToAccountingFormat(info.todayRecovered),
+        todayCases: (info.todayCases ? '+':'')
+          +helper.convertToAccountingFormat(info.todayCases),
+        todayDeaths: (info.todayDeaths ? '+':'')
+          +helper.convertToAccountingFormat(info.todayDeaths),
+        todayRecovered: (info.todayRecovered ? '+':'')
+          +helper.convertToAccountingFormat(info.todayRecovered),
         casesPerOneMillion: helper.convertToAccountingFormat(info.casesPerOneMillion),
         deathsPerOneMillion: helper.convertToAccountingFormat(info.deathsPerOneMillion)
       }))

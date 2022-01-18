@@ -18,7 +18,18 @@ export default {
   props: ['classNames'],
   data(){
     return {
-      headers: ["#","Country","Cases","Deaths","Recovered","Today's Cases","Today's Deaths","Today's Recoveries","Cases Per 1M", "Deaths Per 1M"]
+      headers: [
+        "#",
+        "Country",
+        "Cases",
+        "Deaths",
+        "Recovered",
+        "Today Recovered",
+        "Today's Cases",
+        "Today's Deaths",
+        "Cases Per 1M",
+        "Deaths Per 1M"
+      ]
     }
   }
 }

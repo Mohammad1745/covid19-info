@@ -10,9 +10,18 @@
     <td class="gd"><div>{{ globalInfo.cases }}</div></td>
     <td class="gd"><div>{{ globalInfo.deaths }}</div></td>
     <td class="gd"><div>{{ globalInfo.recovered }}</div></td>
-    <td class="gd"><div>{{ globalInfo.todayCases }}</div></td>
-    <td class="gd"><div>{{ globalInfo.todayDeaths }}</div></td>
-    <td class="gd"><div>{{ globalInfo.todayRecovered }}</div></td>
+    <td
+      class="gd"
+      :class="{'cell-success': globalInfo.todayRecovered !== '0'}"
+    ><div>{{ globalInfo.todayRecovered }}</div></td>
+    <td
+      class="gd"
+      :class="{'cell-highlight': globalInfo.todayCases !== '0'}"
+    ><div>{{ globalInfo.todayCases }}</div></td>
+    <td
+      class="gd"
+      :class="{'cell-danger': globalInfo.todayDeaths !== '0'}"
+    ><div>{{ globalInfo.todayDeaths }}</div></td>
     <td class="gd"><div>{{ globalInfo.casesPerOneMillion }}</div></td>
     <td class="gd"><div>{{ globalInfo.deathsPerOneMillion }}</div></td>
   </tr>

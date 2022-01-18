@@ -134,3 +134,15 @@
   background-color: #f2f2f2;
   border-left: 1px solid var(--border-light);
 }
+.cell-success {
+  color: #fff !important;
+  background-color: green !important;
+}
+.cell-highlight {
+  color: #111 !important;
+  background-color: #ffeeaa !important;
+}
+.cell-danger {
+  color: #111 !important;
+  background-color: #e53935 !important;
+}
