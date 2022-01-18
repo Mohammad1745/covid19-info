@@ -6,7 +6,7 @@
         <img width="40" src="~assets/svg/global.svg" alt="">
       </Heading>
       <SearchBox classNames="mt-3 mb-3" />
-      <Table classNames="mt-3 mb-3" />
+      <Table classNames="mt-3 mb-3 overflow-auto" />
     </div>
   </div>
 </template>
@@ -28,4 +28,17 @@ export default {
 </script>
 
 <style scoped>
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  border-radius:10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
 </style>
