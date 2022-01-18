@@ -7,7 +7,7 @@
   --bg-dark: var(--primary-light);
   --border-light: #bbb;
   --border-dark: #464646;
-  --global-cell: #4d4d4d;
+  --global-cell: #5d5d5d;
 }
 
 .app {
@@ -106,12 +106,20 @@
   font-weight: bold;
   height: 60px;
 }
-.dark-table td {
+.dark-table .gr,
+.dark-table .tr {
+  border-bottom: 1px solid var(--global-cell);
+}
+.light-table .gr,
+.light-table .tr {
+  border-bottom: 1px solid var(--border-light);
+}
+.dark-table .td {
   color: var(--primary-dark);
   background-color: var(--border-dark);
   border-left: 1px solid #cdcdcd;
 }
-.light-table td {
+.light-table .td {
   color: var(--primary-light);
   background-color: transparent;
   border-left: 1px solid var(--border-light);

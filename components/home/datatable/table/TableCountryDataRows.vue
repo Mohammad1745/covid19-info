@@ -1,6 +1,7 @@
 <template>
   <tbody>
     <tr
+      class="tr"
       v-for="(array, i) in countriesInfo"
       :key="i"
     >
