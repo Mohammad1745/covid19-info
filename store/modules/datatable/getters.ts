@@ -1,6 +1,10 @@
 import helper from '../../../helpers/helper';
 
 export default {
+  rowsPerPage: (state:any):number => state.rowsPerPage,
+  currentPage: (state:any):number => state.page,
+  totalPages: (state:any, getters:any, rootState:any):number => Math.ceil(state.allCountryInfo.length/state.rowsPerPage),
+
   globalInfo: (state: any, getters:any, rootState:any):{} => ({
     cases: helper.convertToAccountingFormat(rootState.count.todayInfo.cases),
     deaths: helper.convertToAccountingFormat(rootState.count.todayInfo.deaths),
