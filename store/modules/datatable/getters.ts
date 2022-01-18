@@ -1,7 +1,6 @@
 import helper from '../../../helpers/helper';
 
 export default {
-  loadingCountryInfo: (state: any) => state.loadingAllCountryInfo,
   globalInfo: (state: any, getters:any, rootState:any):string[]|number[] => {
     return [
       '',

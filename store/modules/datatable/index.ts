@@ -10,7 +10,6 @@ export default {
     yesterday: false,
     rowsPerPage: 10,
     page: 1,
-    loadingAllCountryInfo: true
   }),
   getters: {...getters},
   actions: {...actions},
