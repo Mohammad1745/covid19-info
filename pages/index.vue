@@ -2,7 +2,7 @@
   <div class="app" :class="{ 'dark-bg': darkMode, 'light-bg': !darkMode}">
       <Navbar url="/covid-overtime" content="COVID OVERTIME" />
       <LazyCounts />
-      <LazyDatatable />
+      <LazyCountryBreakdown />
   </div>
 </template>
 
