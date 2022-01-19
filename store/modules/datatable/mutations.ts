@@ -46,6 +46,9 @@ export default  {
   UPDATE_COUNTRY_INPUT(state: any, text: string): void {
     state.country = text
   },
+  UPDATE_DAY_INPUT(state: any, text: string): void {
+    state.yesterday = text === 'Yesterday';
+  },
   UPDATE_ROWS_PER_PAGE_INPUT(state: any, rowsPerPage: number): void {
     state.rowsPerPage = rowsPerPage
   },

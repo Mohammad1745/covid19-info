@@ -1,6 +1,8 @@
 import helper from '../../../helpers/helper';
 
 export default {
+  isYesterday: (state:any):boolean => state.yesterday,
+
   rowsPerPage: (state:any):number => state.rowsPerPage,
   currentPage: (state:any):number => state.page,
   totalPages: (state:any):number => Math.ceil(state.allCountryInfo.length/state.rowsPerPage),
