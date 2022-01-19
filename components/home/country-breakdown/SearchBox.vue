@@ -7,6 +7,7 @@
      :class="{ 'dark-input': darkMode, 'light-input': !darkMode}"
      placeholder="Search By Country"
      @keyup="updateCountryInput(text)"
+     @change="updateCountryInput(text)"
    />
    <span
      class="label"
