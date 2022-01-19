@@ -149,3 +149,19 @@
   color: #111 !important;
   background-color: #e53935 !important;
 }
+.dark-chart {
+  background-color: var(--border-dark);
+  border: 1px solid  var(--border-dark);
+  border-radius: 5px;
+}
+.light-chart {
+  background-color: transparent;
+  border: 1px solid  var(--border-light);
+  border-radius: 5px;
+}
+.dark-chart a{
+  color: var(--primary-dark);
+}
+.light-chart a{
+  color: var(--primary-light);
+}

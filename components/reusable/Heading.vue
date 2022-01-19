@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div :class="classNames">
     <div class="title" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">
       <slot></slot>
       {{ title }}
@@ -15,7 +15,7 @@ import {mapGetters, mapActions} from "vuex"
 
 export default {
   name: "Heading",
-  props:['title', 'subtitle'],
+  props:['title', 'subtitle', 'classNames'],
   computed: {
     ...mapGetters(['darkMode'])
   },
