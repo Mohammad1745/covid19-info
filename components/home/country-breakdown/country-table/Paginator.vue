@@ -8,15 +8,11 @@
         :value="option">{{ option }}</option>
     </select>
     <span class="ml-5">
-      <i @click="movePreviousPage"
-        v-if="currentPage>1"
-        class="fas fa-chevron-left cursor-pointer"></i>
+      <i @click="movePreviousPage" v-if="currentPage>1" class="fas fa-chevron-left cursor-pointer"></i>
     </span>
     <span class="ml-4">Page: {{ currentPage }} of {{ totalPages }}</span>
     <span class="ml-4">
-      <i @click="moveNextPage"
-        v-if="currentPage<totalPages"
-         class="fas fa-chevron-right cursor-pointer"></i>
+      <i @click="moveNextPage" v-if="currentPage<totalPages" class="fas fa-chevron-right cursor-pointer"></i>
     </span>
   </div>
 </template>
