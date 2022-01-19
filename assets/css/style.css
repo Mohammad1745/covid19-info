@@ -60,6 +60,9 @@
 .success-primary{
   color: #4CAF50;
 }
+.danger-primary{
+  color: #e53935;
+}
 .light-secondary{
   color: var(--secondary-light);
  }
