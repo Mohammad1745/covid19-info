@@ -5,7 +5,7 @@
       <Heading title="Country Breakdown">
         <img width="40" src="~assets/svg/global.svg" alt="">
       </Heading>
-      <SearchBox classNames="mt-3" />
+      <CountrySearchBox classNames="mt-3" />
       <DaySelector classNames="" />
       <CountryTable />
     </div>

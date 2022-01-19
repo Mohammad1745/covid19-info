@@ -20,7 +20,7 @@
 import {mapGetters, mapActions} from "vuex"
 
 export default {
-  name: "SearchBox",
+  name: "CountrySearchBox",
   props: ['classNames'],
   data(){
     return {
