@@ -13,13 +13,14 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/svg', href: '/covid.svg' },
+      { rel: 'stylesheet', type: 'text/css', href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"}
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~assets/css/style.css',
-    '~assets/css/loader.css'
+    '~assets/css/loader.css',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

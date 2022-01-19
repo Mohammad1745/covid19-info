@@ -12,6 +12,9 @@
 .app {
   min-height: 100vh;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .light-bg{
   background-color: var(--bg-light);
 }
