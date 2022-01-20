@@ -1,6 +1,8 @@
 <template>
   <div class="app" :class="{ 'dark-bg': darkMode, 'light-bg': !darkMode}">
-    <Navbar url="/" content="HOME" />
+    <Navbar url="/" content="HOME" >
+      <i class="fas fa-home ml-2"></i>
+    </Navbar>
   </div>
 </template>
 

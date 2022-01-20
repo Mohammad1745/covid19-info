@@ -5,7 +5,7 @@
         <font-awesome-icon v-if="darkMode" :icon="['fas', 'sun']" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}"/>
         <font-awesome-icon v-else :icon="['fas', 'moon']"/>
       </div>
-      <NuxtLink :to="url" class="btn btn-primary link-item position-relative float-right"> {{ content }}</NuxtLink>
+      <NuxtLink :to="url" class="btn btn-primary link-item position-relative float-right"> {{ content }} <slot></slot></NuxtLink>
     </div>
     <Heading
       title="INFO COVID-19"
