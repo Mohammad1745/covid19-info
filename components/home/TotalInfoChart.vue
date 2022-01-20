@@ -129,7 +129,7 @@ export default {
             const amount = index ? value - recoveries[index - 1] : value
             return amount > 0 ? amount : 0
           }),
-          label: "Cases",
+          label: "Recoveries",
           borderColor: "green",
           backgroundColor: "green",
           fill: false
@@ -142,7 +142,7 @@ export default {
         labels: Object.keys(this.rawChartData.deaths),
         datasets: [{
           data: deaths.map((value, index) => index ? value - deaths[index-1] : value ),
-          label: "Cases",
+          label: "Deaths",
           borderColor: "#e53935",
           backgroundColor: "#e53935",
           fill: false
