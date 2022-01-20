@@ -35,7 +35,7 @@ export default {
     '~components/home/counts/',
     '~components/home/country-breakdown/',
     '~components/home/country-breakdown/country-table',
-    '~components/home/total-info-chart/',
+    '~components/home/info-chart/',
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules

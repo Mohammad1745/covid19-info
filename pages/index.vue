@@ -3,7 +3,7 @@
     <Navbar url="/covid-overtime" content="COVID OVERTIME" />
     <LazyCounts />
     <LazyCountryBreakdown />
-    <LazyTotalInfoChart />
+    <LazyInfoCharts />
   </div>
 </template>
 

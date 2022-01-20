@@ -9,6 +9,7 @@
       <!-- Total - Line Chart -->
       <div class="p-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
         <h5 :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">
+          <img width="40" src="~assets/svg/cases.svg" alt="">
           <span class="font-weight-bold"> Total </span>
           (<u>Linear Scale</u>)
         </h5>
@@ -18,6 +19,7 @@
       <!-- Daily New Cases - Bar Chart -->
       <div v-if="chartContent.includes('cases')" class="p-4 mt-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
         <h5 :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">
+          <img width="40" src="~assets/svg/active-cases.svg" alt="">
           <span class="font-weight-bold"> Daily New Cases</span>
           (<u>Per Day</u>)
         </h5>
@@ -27,6 +29,7 @@
       <!-- Daily New Recoveries -  Bar Chart -->
       <div v-if="chartContent.includes('recovered')" class="p-4 mt-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
         <h5 :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">
+          <img width="40" src="~assets/svg/recoveries.svg" alt="">
           <span class="font-weight-bold"> Daily New Recoveries</span>
           (<u>Per Day</u>)
         </h5>
@@ -36,12 +39,14 @@
       <!-- Daily New Deaths -  Bar Chart -->
       <div v-if="chartContent.includes('deaths')" class="p-4 mt-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
         <h5 :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">
+          <img width="40" src="~assets/svg/deaths.svg" alt="">
           <span class="font-weight-bold"> Daily New Deaths</span>
           (<u>Per Day</u>)
         </h5>
         <Loader v-if="isLoadingCountryData" />
         <BarChart v-else :chart-data="deathChartData" :options="options"></BarChart>
       </div>
+      <Scroller />
     </div>
   </div>
 </template>

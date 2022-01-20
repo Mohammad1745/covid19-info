@@ -1,5 +1,5 @@
 <template>
-  <div :class="classNames">
+  <div id="chart_controller" :class="classNames">
     <select v-model="country"
       class="search-input"
       :class="{ 'dark-input': darkMode, 'light-input': !darkMode}"
