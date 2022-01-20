@@ -3,7 +3,7 @@ import mutations from './mutations'
 
 export default {
   state: () => ({
-    darkMode: true
+    darkMode: false
   }),
   getters: {
     darkMode:  (state:any) => state.darkMode,
