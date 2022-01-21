@@ -34,8 +34,12 @@ export default {
   data(){
     return {
       'country': 'global',
-      'dataContent': ['cases', 'deaths', 'recovered'],
-      'dataContentList': [{name: 'Cases', value: 'cases'}, {name: 'Deaths', value: 'deaths'}, {name: 'Recoveries', value: 'recovered'}],
+      'dataContent': ['cases', 'deaths'],
+      'dataContentList': [
+        {name: 'Cases', value: 'cases'},
+        {name: 'Deaths', value: 'deaths'},
+        {name: 'Recoveries', value: 'recovered'}
+      ],
     }
   },
   computed: {
@@ -45,10 +49,7 @@ export default {
     async updateChartContent () {
       const success = await this.$store.dispatch('updateChartContent', this.dataContent)
       this.dataContent = this.chartContent
-      if (success){
-        this.$emit('data-updated')
-        await this.$store.dispatch('unsetChartLoading')
-      }
+      if (success) this.$emit('data-updated')
     },
     async handleCountryInput(text) {
       await this.$store.dispatch('updateCountry', text)
@@ -57,7 +58,6 @@ export default {
       else
         await this.$store.dispatch('updateChartDataWithCountryInfo')
       this.$emit('data-updated')
-      await this.$store.dispatch('unsetChartLoading')
     }
   },
 }

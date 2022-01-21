@@ -1,7 +1,7 @@
 <template>
   <div class="container-lg pt-5 pb-4">
     <div class="">
-      <div class="mode-btn position-relative float-right" @click="toggleMode">
+      <div class="mode-btn position-relative float-right" @click="handleClick">
         <font-awesome-icon v-if="darkMode" :icon="['fas', 'sun']" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}"/>
         <font-awesome-icon v-else :icon="['fas', 'moon']"/>
       </div>
@@ -24,7 +24,10 @@ export default {
     ...mapGetters(['darkMode'])
   },
   methods:{
-    ...mapActions(['toggleMode'])
+    async handleClick() {
+      await this.$store.dispatch('toggleMode')
+      this.$nuxt.$emit('mode-updated')//Global event on nuxt
+    }
   }
 }
 </script>

@@ -5,44 +5,36 @@
       <Heading title="Worldwide Effects" classNames="mb-3">
         <img width="40" src="~assets/svg/global.svg" alt="">
       </Heading>
-      <ChartController @data-updated="setData" classNames="mb-3"/>
+      <ChartController @data-updated="resetChart" classNames="mb-3"/>
       <!-- Total - Line Chart -->
       <div class="p-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
-        <h5 :class="{ 'dark-primary': darkMode, 'light-secondary': !darkMode}">
+        <ChartHeader title="Total" subtitle="Linear Scale">
           <img width="40" src="~assets/svg/cases.svg" alt="">
-          <span class="font-weight-bold"> Total </span>
-          (<u>Linear Scale</u>)
-        </h5>
+        </ChartHeader>
         <Loader v-if="isLoadingChartData" />
         <LineChart v-else :chart-data="chartData" :options="options"></LineChart>
       </div>
       <!-- Daily New Cases - Bar Chart -->
       <div v-if="chartContent.includes('cases')" class="p-4 mt-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
-        <h5 :class="{ 'dark-primary': darkMode, 'light-secondary': !darkMode}">
+        <ChartHeader title="Daily New Cases" subtitle="Per Day">
           <img width="40" src="~assets/svg/active-cases.svg" alt="">
-          <span class="font-weight-bold"> Daily New Cases</span>
-          (<u>Per Day</u>)
-        </h5>
+        </ChartHeader>
         <Loader v-if="isLoadingChartData" />
         <BarChart v-else :chart-data="caseChartData" :options="options"></BarChart>
       </div>
       <!-- Daily New Recoveries -  Bar Chart -->
       <div v-if="chartContent.includes('recovered')" class="p-4 mt-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
-        <h5 :class="{ 'dark-primary': darkMode, 'light-secondary': !darkMode}">
+        <ChartHeader title="Daily New Recoveries" subtitle="Per Day">
           <img width="40" src="~assets/svg/recoveries.svg" alt="">
-          <span class="font-weight-bold"> Daily New Recoveries</span>
-          (<u>Per Day</u>)
-        </h5>
+        </ChartHeader>
         <Loader v-if="isLoadingChartData" />
         <BarChart v-else :chart-data="recoveryChartData" :options="options"></BarChart>
       </div>
       <!-- Daily New Deaths -  Bar Chart -->
       <div v-if="chartContent.includes('deaths')" class="p-4 mt-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
-        <h5 :class="{ 'dark-primary': darkMode, 'light-secondary': !darkMode}">
+        <ChartHeader title="Daily New Deaths" subtitle="Per Day">
           <img width="40" src="~assets/svg/deaths.svg" alt="">
-          <span class="font-weight-bold"> Daily New Deaths</span>
-          (<u>Per Day</u>)
-        </h5>
+        </ChartHeader>
         <Loader v-if="isLoadingChartData" />
         <BarChart v-else :chart-data="deathChartData" :options="options"></BarChart>
       </div>
@@ -52,7 +44,7 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from "vuex";
+import { mapGetters} from "vuex";
 import helper from "../../helpers/helper"
 
 export default {
@@ -71,17 +63,20 @@ export default {
     ...mapGetters(['darkMode', 'selectedCountry', 'chartContent', 'rawChartData', 'isLoadingChartData']),
   },
   async mounted() {
+    this.$nuxt.$on('mode-updated', this.resetChart)
     await this.$store.dispatch('updateChartDataWithGlobalInfo')
-    this.setData()
-    this.setOptions()
+    await this.resetChart()
     this.loading = false
   },
   methods: {
-    setData () {
+    async resetChart () {
+      await this.$store.dispatch('setChartLoading')
+      this.setOptions()
       this.setTotalChartData()
       this.setCasesChartData()
       this.setRecoveriesChartData()
       this.setDeathsChartData()
+      await this.$store.dispatch('unsetChartLoading')
     },
     setOptions () {
       this.options = {
@@ -99,8 +94,13 @@ export default {
                 display: false,
               },
               ticks: {
+                callback: (val, index) => {
+                  const event = new Date(val);
+                  const options = { month: 'short', day: 'numeric', year: '2-digit' }
+                  return index%1===0 ? event.toLocaleDateString('en-US', options) : ''
+                },
                 fontColor: this.darkMode ? "#fff" : "#111",
-                fontSize: 14,
+                fontSize: 12,
               },
             },
           ],
@@ -109,12 +109,11 @@ export default {
               ticks: {
                 callback: (val, index) => helper.convertToMultiplier(val, 1),
                 fontColor: this.darkMode ? "#fff" : "#111",
+                fontWeight: 'bold'
               },
               gridLines: {
-                // display: true,
-                // borderDash: [4, 4],
-                // color: '#464646',
-                // drawBorder: false,
+                borderDash: [4, 4],
+                color:  this.darkMode ? "#aaa" : "#777",
               },
             },
           ],

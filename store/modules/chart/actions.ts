@@ -16,7 +16,6 @@ export default {
   updateChartContent (context:any, list:string[]):boolean {
     if (list.length) {
       context.commit('UPDATE_CONTENTS', list)
-      context.commit('SET_CHART_LOADING')
       return true
     } else return false
   },

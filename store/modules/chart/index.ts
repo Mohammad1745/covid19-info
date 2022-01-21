@@ -5,7 +5,7 @@ export default {
   state: () => ({
     chartData: {},
     country: '',
-    contents: ['cases', 'deaths', 'recovered'],
+    contents: ['cases', 'deaths'],
     loadingChartData: false,
   }),
   getters: {
