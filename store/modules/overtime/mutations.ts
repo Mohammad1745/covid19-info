@@ -1,6 +1,9 @@
 export default  {
-  UPDATE_CHART_DATA(state: any, data: {}): void {
-    state.chartData = data;
+  UPDATE_GLOBAL_DATA(state: any, data: {}): void {
+    state.globalData = data
+  },
+  UPDATE_COUNTRY_DATA(state: any, data: []): void {
+    state.countryData = data
   },
   UPDATE_COUNTRY(state: any, text: string): void {
     state.country = text

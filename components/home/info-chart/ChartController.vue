@@ -34,7 +34,7 @@ export default {
   data(){
     return {
       'country': 'global',
-      'dataContent': ['cases', 'deaths', 'recovered'],
+      'dataContent': ['cases',],
       'dataContentList': [
         {name: 'Cases', value: 'cases'},
         {name: 'Deaths', value: 'deaths'},
@@ -53,10 +53,6 @@ export default {
     },
     async handleCountryInput(text) {
       await this.$store.dispatch('updateCountry', text)
-      if (this.country==='global')
-        await this.$store.dispatch('updateChartDataWithGlobalInfo')
-      else
-        await this.$store.dispatch('updateChartDataWithCountryInfo')
       this.$emit('data-updated')
     }
   },

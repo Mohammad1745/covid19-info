@@ -64,7 +64,8 @@ export default {
   },
   async mounted() {
     this.$nuxt.$on('mode-updated', this.resetChart)
-    await this.$store.dispatch('updateChartDataWithGlobalInfo')
+    await this.$store.dispatch('updateGlobalData')
+    await this.$store.dispatch('updateCountryData')
     await this.resetChart()
     this.loading = false
   },
