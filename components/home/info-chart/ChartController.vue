@@ -33,7 +33,7 @@ export default {
   props: ['classNames'],
   data(){
     return {
-      'country': '',
+      'country': 'global',
       'dataContent': ['cases', 'deaths', 'recovered'],
       'dataContentList': [{name: 'Cases', value: 'cases'}, {name: 'Deaths', value: 'deaths'}, {name: 'Recoveries', value: 'recovered'}],
     }
@@ -47,7 +47,7 @@ export default {
       this.dataContent = this.chartContent
       if (success){
         this.$emit('data-updated')
-        await this.$store.dispatch('unsetCountryLoading')
+        await this.$store.dispatch('unsetChartLoading')
       }
     },
     async handleCountryInput(text) {
@@ -57,7 +57,7 @@ export default {
       else
         await this.$store.dispatch('updateChartDataWithCountryInfo')
       this.$emit('data-updated')
-      await this.$store.dispatch('unsetCountryLoading')
+      await this.$store.dispatch('unsetChartLoading')
     }
   },
 }

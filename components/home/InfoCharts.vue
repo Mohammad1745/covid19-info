@@ -8,42 +8,42 @@
       <ChartController @data-updated="setData" classNames="mb-3"/>
       <!-- Total - Line Chart -->
       <div class="p-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
-        <h5 :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">
+        <h5 :class="{ 'dark-primary': darkMode, 'light-secondary': !darkMode}">
           <img width="40" src="~assets/svg/cases.svg" alt="">
           <span class="font-weight-bold"> Total </span>
           (<u>Linear Scale</u>)
         </h5>
-        <Loader v-if="isLoadingCountryData" />
+        <Loader v-if="isLoadingChartData" />
         <LineChart v-else :chart-data="chartData" :options="options"></LineChart>
       </div>
       <!-- Daily New Cases - Bar Chart -->
       <div v-if="chartContent.includes('cases')" class="p-4 mt-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
-        <h5 :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">
+        <h5 :class="{ 'dark-primary': darkMode, 'light-secondary': !darkMode}">
           <img width="40" src="~assets/svg/active-cases.svg" alt="">
           <span class="font-weight-bold"> Daily New Cases</span>
           (<u>Per Day</u>)
         </h5>
-        <Loader v-if="isLoadingCountryData" />
+        <Loader v-if="isLoadingChartData" />
         <BarChart v-else :chart-data="caseChartData" :options="options"></BarChart>
       </div>
       <!-- Daily New Recoveries -  Bar Chart -->
       <div v-if="chartContent.includes('recovered')" class="p-4 mt-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
-        <h5 :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">
+        <h5 :class="{ 'dark-primary': darkMode, 'light-secondary': !darkMode}">
           <img width="40" src="~assets/svg/recoveries.svg" alt="">
           <span class="font-weight-bold"> Daily New Recoveries</span>
           (<u>Per Day</u>)
         </h5>
-        <Loader v-if="isLoadingCountryData" />
+        <Loader v-if="isLoadingChartData" />
         <BarChart v-else :chart-data="recoveryChartData" :options="options"></BarChart>
       </div>
       <!-- Daily New Deaths -  Bar Chart -->
       <div v-if="chartContent.includes('deaths')" class="p-4 mt-4" :class="{ 'dark-chart': darkMode, 'light-chart': !darkMode}">
-        <h5 :class="{ 'dark-secondary': darkMode, 'light-secondary': !darkMode}">
+        <h5 :class="{ 'dark-primary': darkMode, 'light-secondary': !darkMode}">
           <img width="40" src="~assets/svg/deaths.svg" alt="">
           <span class="font-weight-bold"> Daily New Deaths</span>
           (<u>Per Day</u>)
         </h5>
-        <Loader v-if="isLoadingCountryData" />
+        <Loader v-if="isLoadingChartData" />
         <BarChart v-else :chart-data="deathChartData" :options="options"></BarChart>
       </div>
       <Scroller />
@@ -53,16 +53,14 @@
 
 <script>
 import {mapActions, mapGetters} from "vuex";
+import helper from "../../helpers/helper"
 
 export default {
   name: "TotalInfoChart",
   data() {
     return {
       loading: true,
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-      },
+      options: {},
       chartData: {},
       caseChartData: {},
       deathChartData: {},
@@ -70,11 +68,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['darkMode', 'selectedCountry', 'chartContent', 'rawChartData', 'isLoadingCountryData']),
+    ...mapGetters(['darkMode', 'selectedCountry', 'chartContent', 'rawChartData', 'isLoadingChartData']),
   },
   async mounted() {
     await this.$store.dispatch('updateChartDataWithGlobalInfo')
     this.setData()
+    this.setOptions()
     this.loading = false
   },
   methods: {
@@ -83,6 +82,44 @@ export default {
       this.setCasesChartData()
       this.setRecoveriesChartData()
       this.setDeathsChartData()
+    },
+    setOptions () {
+      this.options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        legend: {
+          labels: {
+            fontColor: this.darkMode ? "#fff" : "#111",
+          }
+        },
+        scales: {
+          xAxes: [
+            {
+              gridLines: {
+                display: false,
+              },
+              ticks: {
+                fontColor: this.darkMode ? "#fff" : "#111",
+                fontSize: 14,
+              },
+            },
+          ],
+          yAxes: [
+            {
+              ticks: {
+                callback: (val, index) => helper.convertToMultiplier(val, 1),
+                fontColor: this.darkMode ? "#fff" : "#111",
+              },
+              gridLines: {
+                // display: true,
+                // borderDash: [4, 4],
+                // color: '#464646',
+                // drawBorder: false,
+              },
+            },
+          ],
+        }
+      }
     },
     setTotalChartData () {
       let dataSet = []

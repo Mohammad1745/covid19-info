@@ -6,10 +6,10 @@ export default {
     chartData: {},
     country: '',
     contents: ['cases', 'deaths', 'recovered'],
-    loadingCountryData: false,
+    loadingChartData: false,
   }),
   getters: {
-    isLoadingCountryData: (state:any) => state.loadingCountryData,
+    isLoadingChartData: (state:any) => state.loadingChartData,
     rawChartData: (state:any) => state.chartData,
     selectedCountry: (state:any) => state.country,
     chartContent: (state:any) => state.contents,

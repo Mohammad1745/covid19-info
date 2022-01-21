@@ -8,10 +8,10 @@ export default  {
   UPDATE_CONTENTS(state: any, list: string[]): void {
     state.contents = list
   },
-  SET_COUNTRY_LOADING(state: any): void {
-    state.loadingCountryData = true
+  SET_CHART_LOADING(state: any): void {
+    state.loadingChartData = true
   },
-  UNSET_COUNTRY_LOADING(state: any): void {
-    state.loadingCountryData = false
+  UNSET_CHART_LOADING(state: any): void {
+    state.loadingChartData = false
   },
 }
