@@ -34,7 +34,7 @@ export default {
   data(){
     return {
       'country': 'global',
-      'dataContent': ['cases', 'deaths'],
+      'dataContent': ['cases', 'deaths', 'recovered'],
       'dataContentList': [
         {name: 'Cases', value: 'cases'},
         {name: 'Deaths', value: 'deaths'},
