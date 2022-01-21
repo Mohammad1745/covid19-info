@@ -29,8 +29,8 @@ export default {
       this.$nuxt.$emit('mode-updated')//Global event on nuxt
     }
   },
-  mounted() {
-    this.$store.dispatch('getMode')
+  async mounted() {
+    await this.$store.dispatch('getMode')
   }
 }
 </script>
