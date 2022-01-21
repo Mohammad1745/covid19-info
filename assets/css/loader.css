@@ -63,7 +63,7 @@
 }
 .loader-light .dot-2{
   margin-left: 115px;
-  animation: waveUp 2s, smallExtendDark 2s;
+  animation: waveUp 2s, largeExtendDark 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-delay: 0.15s;
@@ -76,7 +76,7 @@
 }
 .loader-light .dot-4{
   margin-left: 185px;
-  animation: waveUp 2s, smallExtendDark 2s;
+  animation: waveUp 2s, largeExtendDark 2s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-delay: 0.45s;
