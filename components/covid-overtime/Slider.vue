@@ -9,7 +9,7 @@
            aria-labelledby='continuous-slider'
            :max="diffInDays">
     <div class="d-flex justify-content-between">
-      <span>0</span>
+      <span>Day 0</span>
       <span>Yesterday</span>
     </div>
   </div>
@@ -44,6 +44,7 @@ input[type=range] {
   -webkit-appearance: none;
   margin: 10px 0;
   width: 100%;
+  background: transparent;
 }
 input[type=range]:focus {
   outline: none;
@@ -59,7 +60,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 15px;
   width: 15px;
   border-radius: 18px;
-  background: #1700B0;
+  background: #2497E3;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -6.5px;
