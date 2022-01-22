@@ -8,6 +8,8 @@ export default  {
       .map((info:any, index:number) => ({
         rank: index+1,
         flag: info.countryInfo.flag,
+        lat: info.countryInfo.lat,
+        long: info.countryInfo.long,
         name: info.country,
         cases: helper.convertToAccountingFormat(info.cases),
         deaths: helper.convertToAccountingFormat(info.deaths),

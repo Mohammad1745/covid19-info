@@ -3,6 +3,10 @@
     <Navbar url="/" content="HOME" >
       <i class="fas fa-home ml-2"></i>
     </Navbar>
+    <Heading title="Visualizing COVID-19 Over Time" classNames="d-flex justify-content-center mb-3" />
+    <OvertimeMap />
+    <Slider />
+    <CheckBox />
   </div>
 </template>
 
