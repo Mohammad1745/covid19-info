@@ -59,7 +59,7 @@ For detailed explanation on how NuxtJS work, check out the [documentation](https
 #### `Home`
 ![](/documentation/counts_component.png)
 #### `Covid Overtime Map`
-![](/documentation/overtime_map.png)
+![](/documentation/overtime.png)
 #### `DataTable`
 ![](/documentation/datatable.png)
 #### `Charts`
