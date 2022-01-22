@@ -1,8 +1,7 @@
 <template>
 <div class="container-lg mt-3" style="max-width: 80vh">
   <div :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">
-    <p>{{ selectedDate }} <span class="position-relative float-right">Since {{ startDate }}</span> </p>
-    <p>Day :</p>
+    <p>Day : {{ selectedDate }} <span class="position-relative float-right">Since {{ startDate }}</span> </p>
     <input type="range" v-model="sliderValue"
            style="width: 100%"
            v-on:input="updateDate(sliderValue)"
