@@ -55,3 +55,9 @@ For detailed explanation on how NuxtJS work, check out the [documentation](https
 ...
 ```
 
+### `Home`
+![](/documentation/counts_component.png)
+![](/documentation/datatable.png)
+![](/documentation/charts.png)
+### `Covid Overtime`
+![](/documentation/overtime_map.png)
