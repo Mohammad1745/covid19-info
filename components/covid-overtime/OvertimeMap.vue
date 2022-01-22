@@ -42,7 +42,7 @@ export default {
   async mounted() {
     this.$nuxt.$on('slider-input', () =>
       this.setMapData())
-    await this.$store.dispatch('updateCountryData')
+    await this.$store.dispatch('updateCountryMapData')
     await this.$store.dispatch('updateCountryLocation')
     this.setMapData()
     this.$nuxt.$emit('map-data-loaded')

@@ -7,6 +7,7 @@ export default {
     date: '7/15/20',
     dateFormat: {month: 'short', day: 'numeric', year: 'numeric' },
     contents: ['cases'],
+    countryData:[],
     overtimeInfo: [],
     countryLocations: []
   }),

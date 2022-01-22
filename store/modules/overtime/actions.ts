@@ -5,6 +5,10 @@ export default {
     context.commit('UPDATE_DATE', value)
     context.commit('UPDATE_OVERTIME_INFO', context.rootState)
   },
+  async updateCountryMapData(context: any):Promise<any>  {
+    let response = await axios.get('https://disease.sh/v3/covid-19/historical?lastdays=all')
+    context.commit('UPDATE_COUNTRY_DATA', response.data)
+  },
   async updateCountryLocation(context: any):Promise<any> {
     let response = await axios.get('https://disease.sh/v3/covid-19/countries')
     context.commit('UPDATE_COUNTRY_LOCATION', response.data)

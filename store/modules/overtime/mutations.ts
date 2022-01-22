@@ -12,6 +12,9 @@ export default  {
     dateArray[2] = dateArray[2].substr(2,2)
     state.date = dateArray.join("/")
   },
+  UPDATE_COUNTRY_DATA(state: any, data: []): void {
+    state.countryData = data
+  },
   UPDATE_COUNTRY_LOCATION(state: any, data: []): void {
     state.countryLocations = data.map((info:any) => ({
         country: info.country,
@@ -19,8 +22,8 @@ export default  {
         long: info.countryInfo.long
       }))
   },
-  UPDATE_OVERTIME_INFO(state: any, rootState:any): void {
-    state.overtimeInfo =  rootState.chart.countryData.map((data: any) => {
+  UPDATE_OVERTIME_INFO(state: any): void {
+    state.overtimeInfo =  state.countryData.map((data: any) => {
       const country = state.countryLocations.find((info:any) => data.country===info.country)
       const coordinates = country ? [country.lat, country.long]: [0,0]
       return {
