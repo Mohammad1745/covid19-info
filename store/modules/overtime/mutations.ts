@@ -1,7 +1,5 @@
-import helper from "~/helpers/helper";
-
 export default  {
-  UPDATE_CONTENTS(state: any, list: string[]): void {
+  UPDATE_MAP_CONTENTS(state: any, list: string[]): void {
     state.contents = list
   },
   UPDATE_DATE(state: any, value:number): void {
@@ -12,26 +10,23 @@ export default  {
     dateArray[2] = dateArray[2].substr(2,2)
     state.date = dateArray.join("/")
   },
-  UPDATE_COUNTRY_DATA(state: any, data: []): void {
-    state.countryData = data
-  },
   UPDATE_COUNTRY_LOCATION(state: any, data: []): void {
     state.countryLocations = data.map((info:any) => ({
-        country: info.country,
-        lat : info.countryInfo.lat,
-        long: info.countryInfo.long
-      }))
+      country: info.country,
+      lat : info.countryInfo.lat,
+      long: info.countryInfo.long
+    }))
   },
-  UPDATE_OVERTIME_INFO(state: any): void {
-    state.overtimeInfo =  state.countryData.map((data: any) => {
-      const country = state.countryLocations.find((info:any) => data.country===info.country)
+  UPDATE_COUNTRY_MAP_DATA(state: any, data: []): void {
+    state.countryMapData = data.map((info: any) => {
+      const country = state.countryLocations.find((location:any) => info.country===location.country)
       const coordinates = country ? [country.lat, country.long]: [0,0]
       return {
-        country: data.country,
-        coordinate: coordinates,
-        cases: data.timeline.cases[state.date],
-        deaths: data.timeline.deaths[state.date],
-        recovered: data.timeline.recovered[state.date],
+        country: info.country,
+        coordinates,
+        cases: info.timeline.cases,
+        deaths: info.timeline.deaths,
+        recovered: info.timeline.recovered,
       }
     })
   },

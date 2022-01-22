@@ -10,10 +10,10 @@
           :lat-lng="circle.center"
           :radius="circle.radius"
           :color="circle.color"
-          :weight="circle.weight"
-          :opacity="circle.opacity"
+          :weight="weight"
+          :opacity="opacity"
           :fillColor="circle.fillColor"
-          :fillOpacity="circle.fillOpacity"
+          :fillOpacity="fillOpacity"
         />
       </l-map>
     </div>
@@ -26,7 +26,7 @@ import {mapGetters} from "vuex";
 export default {
   name: "OvertimeMap",
   computed: {
-    ...mapGetters(['overtimeInfo', 'mapContent'])
+    ...mapGetters(['overtimeCases','overtimeDeaths','overtimeRecoveries', 'mapContent'])
   },
   data () {
     return {
@@ -36,14 +36,19 @@ export default {
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 2,
       center: [47.313220, -1.319482],
+      weight: 1,
+      opacity: 0.5,
+      fillOpacity: 0.5,
       circles: []
     }
   },
   async mounted() {
     this.$nuxt.$on('slider-input', () =>
       this.setMapData())
-    await this.$store.dispatch('updateCountryMapData')
+    this.$nuxt.$on('checkbox-updated', () =>
+      this.setMapData())
     await this.$store.dispatch('updateCountryLocation')
+    await this.$store.dispatch('updateCountryMapData')
     this.setMapData()
     this.$nuxt.$emit('map-data-loaded')
     this.loading = false
@@ -51,39 +56,14 @@ export default {
   methods: {
     setMapData() {
       this.circles = []
-      if (this.mapContent.includes('cases')){
-        this.circles.push(...this.overtimeInfo.map(info => ({
-          center: info.coordinate,
-          radius: 1000*(Math.sqrt(info.cases)),
-          color: 'red',
-          weight: 1,
-          opacity: 0.5,
-          fillColor: 'red',
-          fillOpacity: 0.5,
-        })))
-      }
-      if (this.mapContent.includes('deaths')){
-        this.circles.push(...this.overtimeInfo.map(info => ({
-          center: info.coordinate,
-          radius: 1000*(Math.sqrt(info.deaths)),
-          color: 'black',
-          weight: 1,
-          opacity: 0.5,
-          fillColor: 'black',
-          fillOpacity: 0.5,
-        })))
-      }
-      if (this.mapContent.includes('recovered')){
-        this.circles.push(...this.overtimeInfo.map(info => ({
-          center: info.coordinate,
-          radius: 1000*(Math.sqrt(info.recovered)),
-          color: 'green',
-          weight: 1,
-          opacity: 0.5,
-          fillColor: 'green',
-          fillOpacity: 0.5,
-        })))
-      }
+      if (this.mapContent.includes('cases'))
+        this.circles.push(...this.overtimeCases)
+
+      if (this.mapContent.includes('deaths'))
+        this.circles.push(...this.overtimeDeaths)
+
+      if (this.mapContent.includes('recovered'))
+        this.circles.push(...this.overtimeRecoveries)
     }
   }
 }
