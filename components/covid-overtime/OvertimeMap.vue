@@ -2,17 +2,40 @@
   <div class="container-lg">
     <Loader v-if="loading" />
     <div v-else class=" d-flex justify-content-center">
-      <l-map style="height: 60vh; max-width: 100vh" :zoom="zoom" :center="center">
+      <l-map style="height: 50vh; max-width: 90vh" :zoom="zoom" :center="center">
         <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
         <l-circle
-          v-for="(circle, i) in circles"
+          v-if="mapContent.includes('cases')"
+          v-for="(circle, i) in overtime"
           :key="i"
-          :lat-lng="circle.center"
-          :radius="circle.radius"
-          :color="circle.color"
+          :lat-lng="circle.coordinates"
+          :radius=" 900*(Math.sqrt(circle.cases[date]))"
+          color="red"
+          fillColor="red"
           :weight="weight"
           :opacity="opacity"
-          :fillColor="circle.fillColor"
+          :fillOpacity="fillOpacity"
+        /><l-circle
+          v-if="mapContent.includes('deaths')"
+          v-for="(circle, i) in overtime"
+          :key="i"
+          :lat-lng="circle.coordinates"
+          :radius="900*(Math.sqrt(circle.deaths[date]))"
+          color="black"
+          fillColor="black"
+          :weight="weight"
+          :opacity="opacity"
+          :fillOpacity="fillOpacity"
+        /><l-circle
+          v-if="mapContent.includes('recovered')"
+          v-for="(circle, i) in overtime"
+          :key="i"
+          :lat-lng="circle.coordinates"
+          :radius="900*(Math.sqrt(circle.recovered[date]))"
+          color="green"
+          fillColor="green"
+          :weight="weight"
+          :opacity="opacity"
           :fillOpacity="fillOpacity"
         />
       </l-map>
@@ -26,7 +49,7 @@ import {mapGetters} from "vuex";
 export default {
   name: "OvertimeMap",
   computed: {
-    ...mapGetters(['overtimeCases','overtimeDeaths','overtimeRecoveries', 'mapContent'])
+    ...mapGetters(['date', 'overtime', 'mapContent'])
   },
   data () {
     return {
@@ -36,36 +59,16 @@ export default {
         '&copy; <a target="_blank" href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       zoom: 2,
       center: [47.313220, -1.319482],
-      weight: 1,
-      opacity: 0.5,
+      weight: 0,
+      opacity: 0.1,
       fillOpacity: 0.5,
-      circles: []
     }
   },
   async mounted() {
-    this.$nuxt.$on('slider-input', () =>
-      this.setMapData())
-    this.$nuxt.$on('checkbox-updated', () =>
-      this.setMapData())
     await this.$store.dispatch('updateCountryLocation')
     await this.$store.dispatch('updateCountryMapData')
-    this.setMapData()
-    this.$nuxt.$emit('map-data-loaded')
     this.loading = false
   },
-  methods: {
-    setMapData() {
-      this.circles = []
-      if (this.mapContent.includes('cases'))
-        this.circles.push(...this.overtimeCases)
-
-      if (this.mapContent.includes('deaths'))
-        this.circles.push(...this.overtimeDeaths)
-
-      if (this.mapContent.includes('recovered'))
-        this.circles.push(...this.overtimeRecoveries)
-    }
-  }
 }
 </script>
 

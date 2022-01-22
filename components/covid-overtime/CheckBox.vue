@@ -1,5 +1,5 @@
 <template>
-  <div class="container-lg mt-2" style="max-width: 100vh" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">
+  <div class="container-lg mt-2" style="max-width: 80vh" :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">
     <span v-for="(content, i) in dataContentList" :key="i" class="mr-3">
       <input type="checkbox" v-model="dataContent" @change="updateMapContent"
              :value="content.value"> <span>{{ content.name }}</span>

@@ -30,4 +30,18 @@ export default  {
       }
     })
   },
+  UPDATE_MAP_DATA(state: any, data: []): void {
+    state.countryMapData = state.countryLocations.map((location: any) => {
+      const info:any = data.find((item:any) => item.country === location.country)
+      const coordinates = info ? [info.lat, info.long]: [0,0]
+      return {
+        country: info.country,
+        coordinates,
+        cases: info.timeline.cases,
+        deaths: info.timeline.deaths,
+        recovered: info.timeline.recovered,
+      }
+    })
+    console.log(state.countryMapData)
+  },
 }

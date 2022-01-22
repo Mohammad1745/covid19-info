@@ -8,36 +8,21 @@ export default {
     dateFormat: {month: 'short', day: 'numeric', year: 'numeric' },
     contents: ['cases'],
     countryMapData: [],
+    mapData:[],
     countryLocations: []
   }),
   getters: {
     mapContent: (state:any) => state.contents,
     startDate: (state:any) => new Date(state.startDate).toLocaleDateString('en-US', state.dateFormat),
     selectedDate: (state:any) => new Date(state.date).toLocaleDateString('en-US', state.dateFormat),
-    overtimeCases: (state:any) => state.countryMapData.map((data: any) => {
-      return {
-        center: data.coordinates,
-        radius: 1000*(Math.sqrt(data.cases[state.date])),
-        color: 'red',
-        fillColor: 'red',
-      }
-    }),
-    overtimeDeaths: (state:any) => state.countryMapData.map((data: any) => {
-      return {
-        center: data.coordinates,
-        radius: 1000*(Math.sqrt(data.deaths[state.date])),
-        color: 'black',
-        fillColor: 'black',
-      }
-    }),
-    overtimeRecoveries: (state:any) => state.countryMapData.map((data: any) => {
-      return {
-        center: data.coordinates,
-        radius: 1000*(Math.sqrt(data.recovered[state.date])),
-        color: 'green',
-        fillColor: 'green',
-      }
-    })
+    date: (state:any) => state.date,
+    diffInDays: (state:any) => {
+      const dateToday = new Date()
+      const firstDate = new Date(state.startDate)
+      const diffInTime = dateToday.getTime() - firstDate.getTime()
+      return Math.floor(diffInTime/(1000*3600*24))-1
+    },
+    overtime: (state:any) => state.countryMapData,
   },
   actions: {...actions},
   mutations: {...mutations},
