@@ -1,5 +1,4 @@
 # Covid-19 information
-<hr>
 
 ### Covid-19 Total Information, Countrywise DataTable, Charts & spreding of COVID overtime map.
 
@@ -19,11 +18,8 @@ For detailed explanation on how NuxtJS work, check out the [documentation](https
 #### Applied
 `NuxtJS` `Nuxt Leaflet` `OpenStreetMap` `ChartJS` `Axios` `Fontawesome` `Bootstrap`
 
-
 #### APIs From
 `https://disease.sh/docs/`
-
-<hr>
 
 #### Directory Structure
 ```
@@ -33,28 +29,29 @@ For detailed explanation on how NuxtJS work, check out the [documentation](https
 |     |--- svg
 |
 |--- components
-|     |--- covid-overtime
-|     |--- home
+|     |--- covid-overtime                        # Components for 'covid-overtime' page
+|     |--- home                                  # Components for 'home' page
 |     |     |--- country-breakdown  
 |     |     |     |--- country-table  
+|     |     |     ...
 |     |     |
 |     |     |--- counts  
 |     |     |--- info-chart  
+|     |     ...
 |     |
-|     |--- reusable                                   # Reuable vue-components
+|     |--- reusable                              # Reusable vue-components
 |
-|--- helpers
-|--- pages
+|--- helpers                                     # helper functions and core constants
+|--- pages                                       # root components (auto routed by NuxtJS)
 |--- static
-|--- store
+|--- store                                       # Nuxt Vuex store for state management
 |     |--- modules
-|           |--- mode
-|           |--- count
-|           |--- datatable
-|           |--- chart
-|           |--- overtime
-|
-|
-|
+|     |     |--- mode
+|     |     |--- count
+|     |     |--- datatable
+|     |     |--- chart
+|     |     |--- overtime
+|     |...
+...
 ```
 
