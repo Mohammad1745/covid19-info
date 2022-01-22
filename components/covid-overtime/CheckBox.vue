@@ -51,6 +51,7 @@ input[type=checkbox] {
   -webkit-appearance:none;
   outline: none;
   content: none;
+  cursor: pointer;
 }
 input[type=checkbox]:before {
   content: "\f00c";
