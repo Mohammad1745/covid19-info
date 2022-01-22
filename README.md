@@ -1,6 +1,6 @@
 # Covid-19 information
 
-### Covid-19 Total Information, Countrywise DataTable, Charts & spreding of COVID overtime map.
+#### Covid-19 Total Information, Countrywise DataTable, Charts & spreding of COVID overtime map.
 
 [Live Site](https://covid19information.netlify.app/)
 
