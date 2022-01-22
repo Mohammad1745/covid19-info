@@ -55,11 +55,12 @@ For detailed explanation on how NuxtJS work, check out the [documentation](https
 ...
 ```
 
-### `Home`
+#### App Contents
+#### `Home`
 ![](/documentation/counts_component.png)
-### `Covid Overtime`
+#### `Covid Overtime Map`
 ![](/documentation/overtime_map.png)
-### `DataTable`
+#### `DataTable`
 ![](/documentation/datatable.png)
-### `Charts`
+#### `Charts`
 ![](/documentation/charts.png)
