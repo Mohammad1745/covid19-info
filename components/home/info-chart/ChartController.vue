@@ -1,9 +1,9 @@
 <template>
   <div id="chart_controller" :class="classNames">
     <select v-model="country"
-      class="search-input"
-      :class="{ 'dark-input': darkMode, 'light-input': !darkMode}"
-      @change="handleCountryInput(country)"
+            class="search-input"
+            :class="{ 'dark-input': darkMode, 'light-input': !darkMode}"
+            @change="handleCountryInput(country)"
     >
       <option value="global" selected style="font-weight:bold">Global</option>
       <option
@@ -19,10 +19,10 @@
     <div class="position-relative float-right">
       <div v-for="(content, i) in dataContentList" :key="i">
         <input type="checkbox" v-model="dataContent" @change="updateChartContent"
-        :value="content.value"> <span :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">{{ content.name }}</span>
+               :value="content.value"> <span :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">{{ content.name }}</span>
       </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
@@ -34,7 +34,7 @@ export default {
   data(){
     return {
       'country': 'global',
-      'dataContent': ['cases',],
+      'dataContent': ['cases'],
       'dataContentList': [
         {name: 'Cases', value: 'cases'},
         {name: 'Deaths', value: 'deaths'},
@@ -45,6 +45,9 @@ export default {
   computed: {
     ...mapGetters(['darkMode', 'chartContent', 'countryNames'])
   },
+  mounted () {
+    this.dataContent = this.chartContent
+  },
   methods: {
     async updateChartContent () {
       const success = await this.$store.dispatch('updateChartContent', this.dataContent)
@@ -53,6 +56,10 @@ export default {
     },
     async handleCountryInput(text) {
       await this.$store.dispatch('updateCountry', text)
+      if (this.country==='global')
+        await this.$store.dispatch('updateChartDataWithGlobalInfo')
+      else
+        await this.$store.dispatch('updateChartDataWithCountryInfo')
       this.$emit('data-updated')
     }
   },

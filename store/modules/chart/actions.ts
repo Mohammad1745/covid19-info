@@ -1,13 +1,22 @@
 import axios from "axios";
 
 export default {
-  async updateGlobalData(context: any):Promise<any> {
+  async updateChartDataWithGlobalInfo(context: any):Promise<any> {
     let response = await axios.get('https://disease.sh/v3/covid-19/historical/all?lastdays=all')
-    context.commit('UPDATE_GLOBAL_DATA', response.data)
+    context.commit('UPDATE_CHART_DATA', response.data)
   },
-  async updateCountryData(context: any):Promise<any>  {
-    let response = await axios.get('https://disease.sh/v3/covid-19/historical?lastdays=all')
-    context.commit('UPDATE_COUNTRY_DATA', response.data)
+  async updateChartDataWithCountryInfo(context: any):Promise<any>  {
+    try{
+      let response = await axios.get(`https://disease.sh/v3/covid-19/historical/${context.state.country}?lastdays=all`)
+      if (response.status==200){
+        context.commit('UPDATE_CHART_DATA', response.data.timeline)
+      } else{
+        context.commit('UPDATE_COUNTRY', 'global')
+      }
+    }catch (e) {
+      console.error(e)
+      context.commit('UPDATE_COUNTRY', 'global')
+    }
   },
   updateCountry (context:any, text:string):void{
     context.commit('UPDATE_COUNTRY', text)
