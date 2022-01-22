@@ -2,8 +2,12 @@ import axios from "axios";
 
 export default {
   async updateChartDataWithGlobalInfo(context: any):Promise<any> {
-    let response = await axios.get('https://disease.sh/v3/covid-19/historical/all?lastdays=all')
-    context.commit('UPDATE_CHART_DATA', response.data)
+    try{
+      let response = await axios.get('https://disease.sh/v3/covid-19/historical/all?lastdays=all')
+      context.commit('UPDATE_CHART_DATA', response.data)
+    } catch (e) {
+      console.error(e.message)
+    }
   },
   async updateChartDataWithCountryInfo(context: any):Promise<any>  {
     try{
