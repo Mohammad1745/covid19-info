@@ -19,7 +19,7 @@
     <div class="position-relative float-right">
       <div v-for="(content, i) in dataContentList" :key="i">
         <input type="checkbox" v-model="dataContent" @change="updateChartContent"
-               :value="content.value"> <span :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">{{ content.name }}</span>
+               :class="content.value" :value="content.value"> <span :class="{ 'dark-primary': darkMode, 'light-primary': !darkMode}">{{ content.name }}</span>
       </div>
     </div>
   </div>
@@ -88,5 +88,40 @@ export default {
   font-size: 13px;
   color: #1380d4;
   transition-duration: .5s;
+}
+input[type=checkbox] {
+  -moz-appearance:none;
+  -webkit-appearance:none;
+  outline: none;
+  content: none;
+  cursor: pointer;
+}
+input[type=checkbox]:before {
+  content: "\f00c";
+  font-size: 15px;
+  color: transparent;
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  transform: translateY(2px);
+}
+input.cases:before {
+  border: 2px solid #ffbb77;
+}
+input.deaths:before {
+  border: 2px solid #e53935;
+}
+input.recovered:before {
+  border: 2px solid green;
+}
+input.cases:checked:before {
+  background: #ffbb77;
+}
+input.deaths:checked:before {
+  background: #e53935;
+}
+input.recovered:checked:before {
+  background: green;
 }
 </style>
