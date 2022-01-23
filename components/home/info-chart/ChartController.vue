@@ -71,6 +71,19 @@ export default {
   background: transparent;
   padding: 18px 14px;
 }
+select,
+select:focus {
+  color: #111;
+  outline: none;
+  background: transparent;
+}
+select.dark-input,
+select.dark-input option {
+  color: #fff;
+}
+select.dark-input option {
+  background-color: var(--border-dark);
+}
 .label {
   position: absolute;
   font-size: 0;
