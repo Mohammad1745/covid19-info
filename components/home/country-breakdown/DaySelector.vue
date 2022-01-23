@@ -1,6 +1,6 @@
 <template>
  <div :class="classNames" class="d-flex justify-content-end">
-   <select class="" :class="{'dark' :darkMode}"
+   <select class="" :class="{ 'dark-input': darkMode, 'light-input': !darkMode}"
      @change="updateDayInput(day)" v-model="day">
      <option
        v-for="(option, i) in days"
@@ -39,8 +39,8 @@ select:focus {
   outline: none;
   background: transparent;
 }
-select.dark,
-select.dark option {
+select.dark-input,
+select.dark-input option {
   color: #fff;
   background-color: var(--border-dark);
 }
