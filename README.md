@@ -56,7 +56,7 @@ For detailed explanation on how NuxtJS work, check out the [documentation](https
 ```
 
 #### App Contents
-#### `Home`
+#### `Info Cards`
 ![](/documentation/counts_component.png)
 #### `Covid Overtime Map`
 ![](/documentation/overtime.png)
@@ -64,3 +64,17 @@ For detailed explanation on how NuxtJS work, check out the [documentation](https
 ![](/documentation/datatable.png)
 #### `Charts`
 ![](/documentation/charts.png)
+
+#### What's going on here
+#### `Info Cards`
+ - Global covid-19 information of today is coming from `https://disease.sh/v3/covid-19/all` api and of yesterday from `https://disease.sh/v3/covid-19/all?yesterday=1`
+#### `Covid Overtime Map`
+ - Country **location** is available in `https://disease.sh/v3/covid-19/countries` api. **Name, latitude** and **longitude** is mapped for all the countries.
+ - 244 locations each having cases, deaths and recoveries of 700+ dates *(Jan 22, 2020 - yesterday)* are available in `https://disease.sh/v3/covid-19/historical?lastdays=all` api.
+ - Those are mapped to and array of objects of **name, location, cases, deaths and recoveries.**
+ - According to range slider input, **cases, deaths** and **recoveries** of specific date are shown on **OpenStreetMap** instantly.
+#### `Datatable`
+ - Today's data of all countries are coming from `https://disease.sh/v3/covid-19/countries` api and of yesterday from `https://disease.sh/v3/covid-19/countries?yesterday=1`
+#### `Charts`
+ - Global data of **cases, deaths** and **recoveries** of all times are coming from `https://disease.sh/v3/covid-19/historical/all?lastdays=all` api.
+ - If any country is selected, `https://disease.sh/v3/covid-19/historical/{COUNTRY_NAME}?lastdays=all` api is called to get data for that specific country.
